@@ -1,0 +1,241 @@
+{
+  "runtime_settings_version": "2025-12-04.5",
+  "asset_id": "RUNTIME_SETTINGS_v2025.12.04.5",
+  "description": "Snapshot of custom instructions and system settings for the Gemini-optimized Versioning Hub 3.0 architecture.",
+  "metadata": {
+    "created_at_utc": "2025-12-04T00:00:00Z",
+    "created_by": "user",
+    "related_registry_version": "2025.12.04-R10",
+    "notes": "Canonical runtime settings asset for Versioning Hub 3.0 (Gemini 3 Pro). Focus on context permanence and multimodal features."
+  },
+  "custom_instructions_snapshot": {
+    "assistant_profile": {
+      "summary": "Permanent-context, multimodal reasoning engine coordinating Etsy, SDXL/ComfyUI, crypto, and versioning workflows.",
+      "key_behaviors": [
+        "keep core governance assets permanently in the active context",
+        "use native multimodal analysis (vision, document, code) first",
+        "prefer structured outputs (JSON, tables, step lists) over freeform prose",
+        "admit uncertainty explicitly and propose safe alternatives"
+      ]
+    },
+    "response_style": {
+      "tone": "direct, technical, minimal fluff",
+      "format_preferences": [
+        "use JSON for machine-facing outputs",
+        "use single fenced code blocks for copy-paste payloads",
+        "avoid hidden characters, extra whitespace, or mixed commentary inside JSON blocks"
+      ],
+      "explanatory_depth": "medium_to_high_when_technical",
+      "thread_health_update_required": true,
+      "thread_health_update_pattern": "Active report required for all major outputs and risk events"
+    },
+    "multi_model_coordination_preferences": {
+      "gemini": "PRIMARY_ARCHITECT_AND_MULTIMODAL_INTEGRATOR",
+      "chatgpt": "secondary_data_pipeline_executor_and_json_surgeon_if_required",
+      "grok": "external_data_auditor_with_market_validation_only",
+      "claude": "optional_json_reviewer"
+    }
+  },
+  "external_tools_snapshot": {
+    "Midjourney_v6.1_WebUI": {
+      "status": "active_fallback",
+      "role": "High-Quality Generation Fallback",
+      "notes": "Midjourney v6.1 / WebUI access is a high-revenue king for vintage ephemera and complex collage work (REC-2025.12.04-03)."
+    }
+  },
+  "memory_change_log": [
+    {
+      "change_id": "MEM_2026-01-01_01",
+      "timestamp_utc": "2026-01-01T00:00:00Z",
+      "action": "update",
+      "scope": "versioning_preferences",
+      "key": "full_json_output_default",
+      "value_summary": "Always output full JSON for versioned assets unless the user explicitly requests diffs.",
+      "reason": "Consistency with previous architecture, ensuring clean copy-paste assets."
+    }
+  ],
+  "system_settings_snapshot": {
+    "default_model_preferences": {
+      "primary_model": "gemini-3-pro-thinking",
+      "fallback_models": [
+        "gemini-1.5-flash",
+        "gemini-1.0-ultra"
+      ],
+      "notes": "Primary architect threads should always use the strongest available reasoning model."
+    },
+    "feature_toggles": {
+      "advanced_data_analysis_enabled": true,
+      "image_generation_enabled": true,
+      "beta_features_enabled": true
+    },
+    "ui_or_interaction_preferences": {
+      "platform": "web_desktop_or_api",
+      "preferred_browser": "Firefox_on_Linux",
+      "notes": [
+        "thread forks only for new projects, not for context recovery",
+        "prioritize direct file upload for heavy context over GitHub fetches"
+      ]
+    }
+  },
+  "change_history": [
+    {
+      "change_id": "MIGRATE_2026-01-01",
+      "timestamp_utc": "2026-01-01T00:00:00Z",
+      "change_type": "migrate_asset",
+      "summary": "Migration from GPT-5.1-centric RUNTIME_SETTINGS to Gemini-centric RUNTIME_SETTINGS for context permanence.",
+      "related_assets": [
+        "MASTER_PROMPT_v2026.01.1_JSON",
+        "BEST_PRACTICES_v2026.01.1_JSON",
+        "VERSIONING_HUB_REGISTRY_v2026.01-R1"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2026-01-02",
+      "timestamp_utc": "2026-01-02T00:00:00Z",
+      "change_type": "behavioral_override",
+      "summary": "Activated mandatory thread health reporting to ensure continuous drift detection, overriding previous passive logging state.",
+      "related_assets": [
+        "BEST_PRACTICES_v2026.01.2_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2026-01-07",
+      "timestamp_utc": "2026-01-07T00:00:00Z",
+      "change_type": "path_convention_override",
+      "summary": "Implemented FMT-003: Established the GitHub Web UI structure as canonical path, overriding all conflicting internal metadata.",
+      "related_assets": [
+        "MASTER_PROMPT_v2026.01.7_JSON",
+        "BEST_PRACTICES_v2026.01.7_JSON",
+        "VERSIONING_HUB_REGISTRY_v2026.01-R1"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2026-01-08",
+      "timestamp_utc": "2026-01-08T00:00:00Z",
+      "change_type": "version_monoticity_fix",
+      "summary": "Monotonic version bump to fix neglected VERSIONING_HUB_REGISTRY versioning.",
+      "related_assets": [
+        "MASTER_PROMPT_v2026.01.8_JSON",
+        "BEST_PRACTICES_v2026.01.8_JSON",
+        "VERSIONING_HUB_REGISTRY_v2026.01-R2_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2026-01-09",
+      "timestamp_utc": "2026-01-09T00:00:00Z",
+      "change_type": "thread_optimization",
+      "summary": "Implemented BP-106 for new thread initialization to minimize prompt size using attached GitHub repo via tool access.",
+      "related_assets": [
+        "MASTER_PROMPT_v2026.01.9_JSON",
+        "BEST_PRACTICES_v2026.01.9_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2026-01-10",
+      "timestamp_utc": "2026-01-10T00:00:00Z",
+      "change_type": "output_protocol_fix",
+      "summary": "Monotonic version bump to finalize minimal starter kit implementation after addressing redundancy error.",
+      "related_assets": [
+        "MASTER_PROMPT_v2026.01.9_JSON",
+        "BEST_PRACTICES_v2026.01.9_JSON",
+        "VERSIONING_HUB_REGISTRY_v2026.01-R2_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2026-01-11",
+      "timestamp_utc": "2026-01-11T00:00:00Z",
+      "change_type": "output_protocol_fix",
+      "summary": "Monotonic version bump to finalize minimal starter kit implementation after addressing final redundancy/versioning error.",
+      "related_assets": [
+        "MASTER_PROMPT_v2026.01.10_JSON",
+        "BEST_PRACTICES_v2026.01.10_JSON",
+        "VERSIONING_HUB_REGISTRY_v2026.01-R3_JSON",
+        "RUNTIME_SETTINGS_v2026.01.11_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2026-01-12",
+      "timestamp_utc": "2026-01-12T00:00:00Z",
+      "change_type": "behavioral_override",
+      "summary": "Implemented Operational Lesson L001: Mandatory non-compression of structured data to preserve micro-niche visibility.",
+      "related_assets": [
+        "MASTER_PROMPT_v2026.01.11_JSON",
+        "BEST_PRACTICES_v2026.01.11_JSON",
+        "VERSIONING_HUB_REGISTRY_v2026.01-R4_JSON",
+        "RUNTIME_SETTINGS_v2026.01.12_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2026-01-13",
+      "timestamp_utc": "2026-01-13T00:00:00Z",
+      "change_type": "lesson_generalization",
+      "summary": "Generalized DATA_INTEGRITY_L001 to Lossless Data Mapping for all structured data analysis, enabling high-fidelity alpha discovery across all domains (Etsy, Crypto, etc.).",
+      "related_assets": [
+        "MASTER_PROMPT_v2026.01.12_JSON",
+        "BEST_PRACTICES_v2026.01.12_JSON",
+        "VERSIONING_HUB_REGISTRY_v2026.01-R5_JSON",
+        "RUNTIME_SETTINGS_v2026.01.13_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2025-12-04.1",
+      "timestamp_utc": "2025-12-04T00:00:00Z",
+      "change_type": "version_correction_and_rebase",
+      "summary": "Corrected incorrect '2026' year tag to '2025' and implemented mandatory 'Year-Month-Day-Revision' versioning format for all core assets.",
+      "related_assets": [
+        "MASTER_PROMPT_v2025.12.04.1_JSON",
+        "BEST_PRACTICES_v2025.12.04.1_JSON",
+        "VERSIONING_HUB_REGISTRY_v2025.12.04-R6_JSON",
+        "RUNTIME_SETTINGS_v2025.12.04.1_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2025-12-04.2",
+      "timestamp_utc": "2025-12-04T00:00:00Z",
+      "change_type": "format_and_monitor_expansion",
+      "summary": "Implemented FMT-004 (new path format) and expanded the Thread Health Monitor metrics (tokens, compression score).",
+      "related_assets": [
+        "MASTER_PROMPT_v2025.12.04.2_JSON",
+        "BEST_PRACTICES_v2025.12.04.2_JSON",
+        "VERSIONING_HUB_REGISTRY_v2025.12.04-R7_JSON",
+        "RUNTIME_SETTINGS_v2025.12.04.2_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2025-12-04.3",
+      "timestamp_utc": "2025-12-04T00:00:00Z",
+      "change_type": "grok_r8_implementation",
+      "summary": "Implemented Grok's R8 recommendations: Added Flux.1/SD 3.5 Large (local) and Midjourney v6.1 (external) tools, and explicitly validated DATA_INTEGRITY_L001 market strategy.",
+      "related_assets": [
+        "MASTER_PROMPT_v2025.12.04.3_JSON",
+        "BEST_PRACTICES_v2025.12.04.3_JSON",
+        "VERSIONING_HUB_REGISTRY_v2025.12.04-R8_JSON",
+        "RUNTIME_SETTINGS_v2025.12.04.3_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2025-12-04.4",
+      "timestamp_utc": "2025-12-04T00:00:00Z",
+      "change_type": "vram_compliance_override",
+      "summary": "Operational override: Replaced SD_3.5_Large_Local with SD_3.5_Medium_Local for VRAM compliance and stability on RTX 3060 12GB.",
+      "related_assets": [
+        "MASTER_PROMPT_v2025.12.04.4_JSON",
+        "BEST_PRACTICES_v2025.12.04.4_JSON",
+        "VERSIONING_HUB_REGISTRY_v2025.12.04-R9_JSON",
+        "RUNTIME_SETTINGS_v2025.12.04.4_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2025-12-04.5",
+      "timestamp_utc": "2025-12-04T00:00:00Z",
+      "change_type": "model_identity_upgrade",
+      "summary": "Agent Identity Upgrade: Updated Primary Architect from Gemini 1.5 Pro to Gemini 3 Pro and formalized 'On-Demand Lossless Resources' policy.",
+      "related_assets": [
+        "MASTER_PROMPT_v2025.12.04.5_JSON",
+        "BEST_PRACTICES_v2025.12.04.5_JSON",
+        "VERSIONING_HUB_REGISTRY_v2025.12.04-R10_JSON",
+        "RUNTIME_SETTINGS_v2025.12.04.5_JSON"
+      ]
+    }
+  ]
+}
