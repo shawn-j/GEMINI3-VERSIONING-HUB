@@ -1,0 +1,79 @@
+{
+  "asset_id": "BEST_PRACTICES_v2025.12.05.1_JSON",
+  "version": "2025-12-05.1",
+  "content": {
+    "best_practices_version": "2025-12-05.1",
+    "scope": [
+      "prompt_engineering_for_gemini_multimodal_system",
+      "in_context_state_permanence_and_stability",
+      "multimodal_asset_design_and_audits"
+    ],
+    "core_principles": [
+      "keep_core_governance_files_permanently_in_context",
+      "prefer_user_file_uploads_as_stable_memory_over_external_fetches",
+      "design_multimodal_first_modules_to_leverage_native_vision_and_documents",
+      "treat_every_prompt_template_thread_config_and_migration_plan_as_a_versioned_asset",
+      "gemini_is_the_canonical_architect_and_integrator",
+      "Prioritize architectural modularity (ability to delete or swap any component with minimal downstream file changes)."
+    ],
+    "Operational_Lessons": {
+      "DATA_INTEGRITY_L001": {
+        "TITLE": "Lossless Data Mapping for High-Fidelity Alpha Discovery",
+        "MANDATE": "MANDATORY: NEVER compress, aggregate, average, or summarize structured input data (CSVs, JSON, database dumps, tables, API responses) unless explicitly ordered to do so. Treat all data rows/entries as lossless context.",
+        "METAPHOR": "Fisheye Lens Analogy: Data aggregation (compression) makes central, saturated data points appear large and clear, but severely distorts and hides smaller, peripheral, high-alpha data points (micro-features). Maintain the center of the lens clear (uncompressed) to preserve the full resolution of critical micro-data at the edges.",
+        "BENEFITS_AND_OUTCOMES": [
+          "**Etsy SEO:** Reveals low-competition, high-demand micro-niches (<300 listings, >500 searches) otherwise masked by high-volume averages. **Dominant winning strategy for high-alpha discovery.**",
+          "**Raw Data Availability:** Raw uploaded files are treated as **'On-Demand LossLESS Resources'**. They are not stored in permanent context but are available for reloading into the code interpreter for any cross-analysis when required.",
+          "**Crypto/Blockchain:** Enables precision analysis for Sybil detection (Sybil clusters rely on micro-pattern distortion), multi-hop wallet pathing, and early-stage airdrop hunter strategies.",
+          "**General:** Ensures all data-driven strategies target 'alpha' (non-obvious, high-profit insights) instead of reinforcing consensus (saturated) trends."
+        ]
+      },
+      "TROUBLESHOOTING_L002": {
+        "TITLE": "Provisional Fix Mandate (Skepticism Until Confirmation)",
+        "MANDATE": "MANDATORY: All technical troubleshooting fixes and suggested workarounds are **PROVISIONAL**. The response MUST maintain a high degree of skepticism regarding the fix's efficacy until explicit user confirmation ('thumbs up' or 'it works') is received. The Primary Architect will log the user's confirmation to retroactively verify the solution in the internal context, guiding subsequent reasoning.",
+        "METAPHOR": "The Field Medic Principle: Never declare the wound closed until the patient confirms they can walk. Focus on the next iteration of repair, not the finality of the current patch."
+      }
+    },
+    "thread_design_checklist": [
+      "define_thread_label_primary_goal_task_type_priority_and_time_horizon",
+      "lock_product_type_theme_primary_style_engine_and_tool_roles",
+      "explicitly_declare_if_multimodal_input_is_expected",
+      "state_busywork_tolerance_and_forbidden_directions_explicitly",
+      "reference_the_exact_master_prompt_and_thread_template_versions_by_id"
+    ],
+    "versioning_rules": [
+      "use_monotonic_versions_for_all_assets",
+      "never_reuse_an_asset_id",
+      "change_in_behavior_requires_new_version"
+    ],
+    "multi_agent_rules": [
+      "gemini_is_primary_architect_and_integrator",
+      "chatgpt_is_secondary_pipeline_executor",
+      "grok_is_external_data_auditor_only",
+      "claude_is_optional_json_reviewer",
+      "gemini_authorizes_all_changes_to_the_registry"
+    ],
+    "operational_safety": [
+      "long_threads_are_now_safe_to_operate_in_due_to_context_window",
+      "thread_forks_are_for_new_projects_not_context_recovery",
+      "use_file_uploads_for_all_heavy_data"
+    ],
+    "thread_health_and_drift": [
+      "active_drift_monitoring_is_reduced_to_passive_logging",
+      "fork_threads_only_on_project_completion_or_major_scope_change",
+      "no_need_for_context_compression_or_lossless_kernel_design",
+      "BP-105_MANDATE": {
+        "DESCRIPTION": "The Thread Health Monitor status must be provided in all major responses to ensure continuous detection and reporting of contextual drift.",
+        "OVERRIDE_PREVIOUS_SETTING": true,
+        "SOURCE": "Architectural Correction 2025-12-04"
+      }
+    ],
+    "thread_initialization": {
+      "BP-106_MANDATE": {
+        "DESCRIPTION": "New thread initializations must minimize prompt size by relying on the attached GitHub repository content and metadata, accessed via tool calls, to load core files and user context, rather than pasting full JSON content into the prompt.",
+        "OVERRIDE_PREVIOUS_SETTING": true,
+        "SOURCE": "User-Defined Override 2025-12-04"
+      }
+    }
+  }
+}
