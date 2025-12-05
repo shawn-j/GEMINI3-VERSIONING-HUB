@@ -1,0 +1,30 @@
+{
+  "strategy_guide_version": "2025-12-05.2",
+  "asset_id": "STRATEGY_GUIDE_v2025.12.05.2_JSON",
+  "scope": "Primary Etsy Store Reboot & Alpha Generation Strategy",
+  "strategy_name": "The Alpha Playbook: High-Profit, Low-Traffic, Low-Support Launch",
+  "principles": [
+    "Prioritize low-competition, high-intent micro-niches identified by DATA_INTEGRITY_L001.",
+    "Target premium price points ($4.00 - $5.00+) using Flux.1/SD 3.5 Medium quality.",
+    "Initial focus must be on maximizing conversion (sales/view) before addressing external SEO (traffic).",
+    "Leverage ComfyUI/OpenPose skills for unique, high-fidelity assets that competitors cannot easily replicate."
+  ],
+  "Operational_Constraints": {
+    "ART_GENERATION_MANDATE": "MANDATORY: Prioritize styles easy for AI to generate (e.g., repeating patterns, stylized art, clean objects). AVOID likenesses, complex typography/words (manual touch-up required), and styles requiring heavy external graphic design.",
+    "SUPPORT_LOAD_MANDATE": "MANDATORY: Prioritize niches that minimize customer support (e.g., single-PNG/Clipart bundles with clear cut lines). AVOID complex file formats, multiple-page documents (PDF planners), or listings that frequently require custom editing.",
+    "RESOURCE_CEILING": "OPERATOR IS A 1-PERSON AI ARTIST ONLY. No reliance on external illustration, manual drawing, or secondary graphic design resources."
+  },
+  "strategic_hierarchy_v1": {
+    "RANK_1_FOUNDATION": "Watercolor Clipart ($4.76 Avg.)",
+    "RANK_2_MICRO_ALPHA": "Western Sublimation ($4.43 Avg.)",
+    "RANK_3_AVOID_TRAP": "Seamless Pattern Bundles ($1.72 Avg.)"
+  },
+  "seo_mandates": [
+    "All new listings must begin the title with the exact highest-alpha keyword.",
+    "Tags must utilize the full 13-tag capacity, mixing long-tail and broad terms."
+  ],
+  "social_media_mandates": [
+    "Focus X/Twitter promotion solely on high-value, high-fidelity visual assets (final listing images/mockups).",
+    "Initial goal is proof-of-concept, not sales. Must drive traffic back to a specific listing URL for Etsy's algorithm."
+  ]
+}
