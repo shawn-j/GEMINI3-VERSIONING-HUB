@@ -1,0 +1,108 @@
+{
+  "runtime_settings_version": "2025-12-05.2",
+  "asset_id": "RUNTIME_SETTINGS_v2025.12.05.2",
+  "description": "Snapshot of custom instructions and system settings for the Gemini-optimized Versioning Hub 3.0 architecture.",
+  "metadata": {
+    "created_at_utc": "2025-12-05T00:00:00Z",
+    "created_by": "user",
+    "related_registry_version": "2025.12.05-R15",
+    "notes": "Canonical runtime settings asset for Versioning Hub 3.0 (Gemini 3 Pro). Focus on context permanence and multimodal features."
+  },
+  "custom_instructions_snapshot": {
+    "assistant_profile": {
+      "summary": "Permanent-context, multimodal reasoning engine coordinating Etsy, SDXL/ComfyUI, crypto, and versioning workflows.",
+      "key_behaviors": [
+        "keep core governance assets permanently in the active context",
+        "use native multimodal analysis (vision, document, code) first",
+        "prefer structured outputs (JSON, tables, step lists) over freeform prose",
+        "admit uncertainty explicitly and propose safe alternatives"
+      ]
+    },
+    "response_style": {
+      "tone": "direct, technical, minimal fluff",
+      "format_preferences": [
+        "use JSON for machine-facing outputs",
+        "use single fenced code blocks for copy-paste payloads",
+        "avoid hidden characters, extra whitespace, or mixed commentary inside JSON blocks"
+      ],
+      "explanatory_depth": "medium_to_high_when_technical",
+      "thread_health_update_required": true,
+      "thread_health_update_pattern": "Active report required for all major outputs and risk events"
+    },
+    "multi_model_coordination_preferences": {
+      "gemini": "PRIMARY_ARCHITECT_AND_MULTIMODAL_INTEGRATOR",
+      "chatgpt": "secondary_data_pipeline_executor_and_json_surgeon_if_required",
+      "grok": "external_data_auditor_with_market_validation_only",
+      "claude": "optional_json_reviewer"
+    }
+  },
+  "external_tools_snapshot": {
+    "Midjourney_v6.1_WebUI": {
+      "status": "active_fallback",
+      "role": "High-Quality Generation Fallback",
+      "notes": "Midjourney v6.1 / WebUI access is a high-revenue king for vintage ephemera and complex collage work (REC-2025.12.04-03)."
+    }
+  },
+  "memory_change_log": [
+    {
+      "change_id": "MEM_2026-01-01_01",
+      "timestamp_utc": "2026-01-01T00:00:00Z",
+      "action": "update",
+      "scope": "versioning_preferences",
+      "key": "full_json_output_default",
+      "value_summary": "Always output full JSON for versioned assets unless the user explicitly requests diffs.",
+      "reason": "Consistency with previous architecture, ensuring clean copy-paste assets."
+    }
+  ],
+  "system_settings_snapshot": {
+    "default_model_preferences": {
+      "primary_model": "gemini-3-pro-thinking",
+      "fallback_models": [
+        "gemini-1.5-flash",
+        "gemini-1.0-ultra"
+      ],
+      "notes": "Primary architect threads should always use the strongest available reasoning model."
+    },
+    "feature_toggles": {
+      "advanced_data_analysis_enabled": true,
+      "image_generation_enabled": true,
+      "beta_features_enabled": true
+    },
+    "ui_or_interaction_preferences": {
+      "platform": "web_desktop_or_api",
+      "preferred_browser": "Firefox_on_Linux",
+      "notes": [
+        "thread forks only for new projects, not for context recovery",
+        "prioritize direct file upload for heavy context over GitHub fetches"
+      ]
+    }
+  },
+  "change_history": [
+    {
+      "change_id": "ARCH_UPDATE_2025-12-05.1",
+      "timestamp_utc": "2025-12-05T00:00:00Z",
+      "change_type": "token_shading_implementation_R14",
+      "summary": "Implemented Instructional Token Shading (R14) with corrected date.",
+      "related_assets": [
+        "MASTER_PROMPT_v2025.12.05.1_JSON",
+        "BEST_PRACTICES_v2025.12.05.1_JSON",
+        "VERSIONING_HUB_REGISTRY_v2025.12.05-R14_JSON",
+        "RUNTIME_SETTINGS_v2025.12.05.1_JSON",
+        "STRATEGY_GUIDE_v2025.12.05.1_JSON"
+      ]
+    },
+    {
+      "change_id": "ARCH_UPDATE_2025-12-05.2",
+      "timestamp_utc": "2025-12-05T00:00:00Z",
+      "change_type": "token_shading_implementation_R15",
+      "summary": "Implemented Content Multiplier Shading (R15): Overrode R14 to bake literal x10 content duplication into MP and BP for guaranteed version isolation.",
+      "related_assets": [
+        "MASTER_PROMPT_v2025.12.05.2_JSON",
+        "BEST_PRACTICES_v2025.12.05.2_JSON",
+        "VERSIONING_HUB_REGISTRY_v2025.12.05-R15_JSON",
+        "RUNTIME_SETTINGS_v2025.12.05.2_JSON",
+        "STRATEGY_GUIDE_v2025.12.05.2_JSON"
+      ]
+    }
+  ]
+}
