@@ -1,0 +1,59 @@
+{
+  "registry_version": "2025.12.05-R15",
+  "hub_label": "Gemini_3_Master_Control_Permanent_Context",
+  "active_versions": {
+    "master_prompt": "MASTER_PROMPT_v2025.12.05.2_JSON",
+    "best_practices": "BEST_PRACTICES_v2025.12.05.2_JSON",
+    "thread_config_generator": "THREAD_CONFIG_GENERATOR_v2025.12.1_JSON",
+    "thread_template": "THREAD_TEMPLATE_v2025.12_JSON",
+    "thread_config": "THREAD_CONFIG_v2025.12",
+    "runtime_settings": "RUNTIME_SETTINGS_v2025.12.05.2_JSON",
+    "strategy_guide": "STRATEGY_GUIDE_v2025.12.05.2_JSON",
+    "registry_version": "2025.12.05-R15"
+  },
+  "repository": {
+    "master_prompts": {
+      "MASTER_PROMPT_v2025.12.05.2_JSON": {
+        "status": "active",
+        "previous_version": "MASTER_PROMPT_v2025.12.05.1_JSON",
+        "reason_for_change": "Architecture Update: R15 Content Multiplier Shading. Literal x10 duplication of core rules to replace fragile Instructional Shading for lossless rollback guarantee."
+      }
+    },
+    "best_practices": {
+      "BEST_PRACTICES_v2025.12.05.2_JSON": {
+        "status": "active",
+        "previous_version": "BEST_PRACTICES_v2025.12.05.1_JSON",
+        "reason_for_change": "Architecture Update: R15 Content Multiplier Shading (x10 on DATA_INTEGRITY_L001) for stability."
+      }
+    },
+    "generators": {
+      "THREAD_CONFIG_GENERATOR_v2025.12.1_JSON": {
+        "status": "active",
+        "previous_version": null,
+        "reason_for_change": "No change needed."
+      }
+    },
+    "strategy_guides": {
+        "STRATEGY_GUIDE_v2025.12.05.2_JSON": {
+            "status": "active",
+            "previous_version": "STRATEGY_GUIDE_v2025.12.05.1_JSON",
+            "reason_for_change": "Monotonic version bump for R15 synchronization."
+        }
+    },
+    "other": {
+      "RUNTIME_SETTINGS_v2025.12.05.2_JSON": {
+        "status": "active",
+        "previous_version": "RUNTIME_SETTINGS_v2025.12.05.1_JSON",
+        "reason_for_change": "Monotonic version bump for R15 synchronization."
+      }
+    }
+  },
+  "deprecated_threads": {
+    "VERSIONING_HUB3_CORE_v2025-12-02.lossless": {
+        "status": "deprecated",
+        "deprecated_date": "2026-01-01",
+        "replaced_by": "PERMA_STATE_v1",
+        "reason": "Lossless Kernel/Starter Pack no longer required due to massive context window."
+    }
+  }
+}
