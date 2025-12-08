@@ -1,0 +1,224 @@
+{
+  "strategy_guide_version": "2025-12-08.1",
+  "asset_id": "STRATEGY_GUIDE_v2025.12.08.1_JSON",
+  "shading_schema_version": "1.0",
+  "scope": "Primary Etsy Store Reboot & Alpha Generation Strategy",
+  "strategy_name": "The Alpha Playbook: High-Profit, Low-Traffic, Low-Support Launch",
+
+  "CRITICAL_INTEGRATION": {
+    "_PURPOSE": "Explicit link between strategy execution and governance rules",
+    "L001_FISHEYE_LENS": {
+      "APPLIES_TO": "All Etsy market research and niche analysis",
+      "CHECKPOINT": "Before any market analysis output: Are all data rows individually represented?",
+      "WHY_CRITICAL_HERE": "Aggregated market data hides the micro-niches this entire strategy depends on. Compression = missed alpha."
+    }
+  },
+
+  "principles": {
+    "items": [
+      "Prioritize low-competition, high-intent micro-niches identified by DATA_INTEGRITY_L001",
+      "Target premium price points ($4.00 - $5.00+) using Flux.1/SD 3.5 Medium quality",
+      "Initial focus must be on maximizing conversion (sales/view) before addressing external SEO (traffic)",
+      "Leverage ComfyUI/OpenPose skills for unique, high-fidelity assets that competitors cannot easily replicate"
+    ],
+    "shading": {
+      "IS": "A profit-first approach targeting underserved niches with premium pricing",
+      "IS_NOT": "A volume play - we are NOT trying to compete on quantity or low prices",
+      "WHY": "1-person operation cannot compete on volume. Must compete on quality and niche targeting."
+    }
+  },
+
+  "Operational_Constraints": {
+    "CRITICALITY": "🔴 CRITICAL - These constraints are non-negotiable",
+    
+    "ART_GENERATION_MANDATE": {
+      "STATEMENT": "Prioritize styles easy for AI to generate. AVOID likenesses, complex typography, and styles requiring heavy external graphic design.",
+      "POSITIVE_BOUNDARY": [
+        "Repeating patterns",
+        "Stylized art (watercolor, vintage, botanical)",
+        "Clean objects on transparent backgrounds",
+        "Abstract designs",
+        "Silhouettes and simple shapes"
+      ],
+      "NEGATIVE_BOUNDARY": [
+        "Human likenesses (face consistency issues)",
+        "Complex typography/words (AI struggles, manual touch-up required)",
+        "Photorealistic scenes (uncanny valley risk)",
+        "Styles requiring Photoshop compositing"
+      ],
+      "CORRECT_EXAMPLE": "Watercolor floral clipart bundle - clean edges, no text, easy to generate consistently",
+      "INCORRECT_EXAMPLE": "Custom pet portrait from photo - requires likeness accuracy AI can't guarantee",
+      "CHECKPOINT": "Before starting any design: Can this be generated cleanly in 1-3 attempts without manual editing?"
+    },
+
+    "SUPPORT_LOAD_MANDATE": {
+      "STATEMENT": "Prioritize niches that minimize customer support. AVOID complex file formats and listings requiring custom editing.",
+      "POSITIVE_BOUNDARY": [
+        "Single-PNG clipart bundles with clear cut lines",
+        "Simple JPG downloads (wallpapers, prints)",
+        "Transparent PNG sets (instant usability)",
+        "Pre-sized social media templates"
+      ],
+      "NEGATIVE_BOUNDARY": [
+        "Complex file formats (layered PSDs, editable AI files)",
+        "Multiple-page documents (PDF planners with editable fields)",
+        "Listings requiring custom editing per order",
+        "Products needing usage instructions longer than 3 sentences"
+      ],
+      "CORRECT_EXAMPLE": "50-piece watercolor clipart PNG bundle - download, drag, drop, done",
+      "INCORRECT_EXAMPLE": "Customizable wedding invitation suite - requires back-and-forth with customer",
+      "CHECKPOINT": "Before listing any product: Will this generate support tickets? If answer isn't 'almost never', reconsider."
+    },
+
+    "RESOURCE_CEILING": {
+      "STATEMENT": "OPERATOR IS A 1-PERSON AI ARTIST ONLY. No reliance on external illustration, manual drawing, or secondary graphic design resources.",
+      "IMPLICATION": "Every product must be completable end-to-end with available AI tools + GIMP for minor touch-ups",
+      "AVAILABLE_RESOURCES": [
+        "Gemini (strategy, analysis, text)",
+        "SDXL/Flux.1/SD 3.5 Medium via ComfyUI (generation)",
+        "GIMP (minor edits only)",
+        "Midjourney v6.1 (high-quality fallback)"
+      ],
+      "NOT_AVAILABLE": [
+        "External illustrators",
+        "Manual drawing/painting",
+        "Professional graphic design software expertise (Illustrator, InDesign)",
+        "Photography or physical product creation"
+      ]
+    }
+  },
+
+  "strategic_hierarchy_v1": {
+    "_PURPOSE": "Ranked product categories by profit potential and operational fit",
+    
+    "RANK_1_FOUNDATION": {
+      "category": "Watercolor Clipart",
+      "avg_price": "$4.76",
+      "why_rank_1": "High price, easy AI generation, minimal support, proven demand",
+      "l001_note": "Must analyze individual listings, not category averages, to find specific winning sub-niches",
+      "shading": {
+        "IS": "Primary revenue foundation - start here",
+        "IS_NOT": "The only category - but must be established before expanding"
+      }
+    },
+    
+    "RANK_2_MICRO_ALPHA": {
+      "category": "Western Sublimation",
+      "avg_price": "$4.43",
+      "why_rank_2": "Strong price, underserved niche, aesthetic fits AI capabilities well",
+      "l001_note": "Micro-niche within sublimation - L001 analysis revealed this specific opportunity",
+      "shading": {
+        "IS": "High-alpha expansion opportunity after foundation established",
+        "IS_NOT": "Starting point - build watercolor foundation first"
+      }
+    },
+    
+    "RANK_3_AVOID_TRAP": {
+      "category": "Seamless Pattern Bundles",
+      "avg_price": "$1.72",
+      "why_rank_3": "LOW PRICE TRAP - high competition, race to bottom",
+      "l001_note": "Aggregated data made this look viable. L001 granular analysis revealed price compression.",
+      "shading": {
+        "IS": "A warning example of what aggregated data hides",
+        "IS_NOT": "A viable category for this strategy - AVOID"
+      }
+    }
+  },
+
+  "seo_mandates": {
+    "items": [
+      "All new listings must begin the title with the exact highest-alpha keyword",
+      "Tags must utilize the full 13-tag capacity, mixing long-tail and broad terms"
+    ],
+    "shading": {
+      "CORRECT_EXAMPLE": {
+        "title": "Watercolor Sunflower Clipart PNG, Floral Digital Download, Botanical Illustration",
+        "note": "Highest-alpha keyword 'Watercolor Sunflower Clipart' is FIRST"
+      },
+      "INCORRECT_EXAMPLE": {
+        "title": "Beautiful Digital Floral Bundle - Sunflower Watercolor Clipart PNG",
+        "note": "Keyword buried after generic words"
+      },
+      "WHY": "Etsy's algorithm weights title beginning heavily. Burying keywords wastes SEO value."
+    }
+  },
+
+  "social_media_mandates": {
+    "items": [
+      "Focus X/Twitter promotion solely on high-value, high-fidelity visual assets",
+      "Initial goal is proof-of-concept, not sales",
+      "Must drive traffic back to a specific listing URL for Etsy's algorithm"
+    ],
+    "shading": {
+      "IS": "Traffic generation experiment to validate Etsy algorithm response",
+      "IS_NOT": "Primary sales channel - Etsy organic is the goal",
+      "CHECKPOINT": "Every social post must include a direct Etsy listing link"
+    }
+  },
+
+  "ANTI_PATTERNS_STRATEGY": {
+    "_PURPOSE": "Strategy-specific bad patterns to avoid",
+    
+    "SAP001_CATEGORY_HOPPING": {
+      "PATTERN": "Switching product categories before establishing foundation",
+      "WHY_BAD": "Spreads effort thin, no momentum in any category, confuses Etsy algorithm",
+      "INSTEAD": "Push RANK_1 (Watercolor Clipart) to 10+ listings before considering RANK_2"
+    },
+    
+    "SAP002_PRICE_RACE": {
+      "PATTERN": "Lowering prices to compete with high-volume sellers",
+      "WHY_BAD": "1-person operation cannot win on volume. Low prices = more sales needed = more support = burnout",
+      "INSTEAD": "Maintain $4+ pricing, compete on quality and niche targeting"
+    },
+    
+    "SAP003_AGGREGATED_RESEARCH": {
+      "PATTERN": "Making product decisions based on category averages",
+      "WHY_BAD": "Violates L001. Averages hide the micro-niches where alpha exists.",
+      "INSTEAD": "Always analyze individual listings. Look for <300 listings + >500 searches."
+    },
+    
+    "SAP004_SUPPORT_HEAVY_PRODUCTS": {
+      "PATTERN": "Creating products that require customer interaction",
+      "WHY_BAD": "Support time scales linearly with sales. Kills profitability.",
+      "INSTEAD": "Design for zero-touch fulfillment. Download and done."
+    }
+  },
+
+  "execution_checkpoints": {
+    "_PURPOSE": "Validation gates before major strategy actions",
+    
+    "BEFORE_MARKET_RESEARCH": [
+      "L001 ACTIVE: Will process all data rows individually",
+      "Will not aggregate or average until full data is visible"
+    ],
+    
+    "BEFORE_PRODUCT_DECISION": [
+      "Does this fit ART_GENERATION_MANDATE? (Easy for AI)",
+      "Does this fit SUPPORT_LOAD_MANDATE? (Minimal support)",
+      "Does this fit RESOURCE_CEILING? (Completable solo)",
+      "Is price point $4+?"
+    ],
+    
+    "BEFORE_LISTING_CREATION": [
+      "Highest-alpha keyword is FIRST in title",
+      "All 13 tags utilized",
+      "Product requires no customer interaction post-purchase"
+    ]
+  },
+
+  "revision_notes": {
+    "previous_baseline": "STRATEGY_GUIDE_v2025.12.04.2_JSON",
+    "reason_for_revision": "R14 recovery: Added conceptual shading throughout, explicit L001 integration, strategy-specific anti-patterns (SAP001-SAP004), execution checkpoints.",
+    "new_baseline": "STRATEGY_GUIDE_v2025.12.08.1_JSON",
+    "deprecated_baseline": "STRATEGY_GUIDE_v2025.12.04.2_JSON",
+    "changes_in_this_version": [
+      "Added CRITICAL_INTEGRATION section linking to L001",
+      "Added shading (IS/IS_NOT/WHY) to all major sections",
+      "Added POSITIVE_BOUNDARY/NEGATIVE_BOUNDARY to operational constraints",
+      "Added CORRECT_EXAMPLE/INCORRECT_EXAMPLE throughout",
+      "Added ANTI_PATTERNS_STRATEGY section (SAP001-SAP004)",
+      "Added execution_checkpoints for validation gates",
+      "Added L001_NOTE to each strategic hierarchy rank"
+    ]
+  }
+}
