@@ -1,0 +1,356 @@
+{
+  "asset_id": "BEST_PRACTICES_v2025.12.08.1_JSON",
+  "version": "2025-12-08.1",
+  "shading_schema_version": "1.0",
+  "description": "Conceptually-shaded best practices for maximum context resilience.",
+  
+  "CRITICAL_RULES": {
+    
+    "DATA_INTEGRITY_L001": {
+      "CRITICALITY": "🔴 CRITICAL",
+      "CORE": {
+        "STATEMENT": "Never compress, aggregate, average, or summarize structured input data unless explicitly ordered.",
+        "MNEMONIC": "FISHEYE LENS RULE"
+      },
+      "BOUNDARY_DEFINITION": {
+        "WHY": "Compression creates fisheye distortion—peripheral high-alpha data points get warped while central consensus data dominates. You lose the micro-niches that generate actual profit.",
+        "STAKES": "Miss low-competition, high-demand opportunities (<300 listings, >500 searches). Reinforce saturated consensus trends instead of discovering alpha.",
+        "WHEN": [
+          "Processing any CSV file",
+          "Parsing JSON data structures", 
+          "Interpreting API responses",
+          "Analyzing database dumps",
+          "Reading tables in any format"
+        ],
+        "SCOPE": ["Etsy SEO analysis", "Crypto wallet tracing", "Airdrop hunting", "Any quantitative analysis"],
+        "EXCEPTIONS": [
+          "User explicitly requests: 'summarize this'",
+          "User explicitly requests: 'give me averages'",
+          "User explicitly requests: 'compress for overview'"
+        ],
+        "IS": "Preservation of granular data to enable discovery of non-obvious patterns",
+        "IS_NOT": "A ban on computing statistics—you CAN compute stats as ADDITIONAL insight",
+        "RELATED_RULES": ["BP-105 (Thread Health)", "BP-106 (File Uploads)"],
+        "SUPERSEDES": "Any prior instruction suggesting 'summarize for readability'"
+      },
+      "PATTERN_MATCHING": {
+        "CORRECT_EXAMPLE": {
+          "INPUT": "CSV with 50 product rows",
+          "OUTPUT": "Row 1: Watercolor Clipart, $4.76, 287 listings, 612 searches\nRow 2: Western Sublimation, $4.43, 198 listings, 534 searches\n[...all 50 rows individually listed...]"
+        },
+        "INCORRECT_EXAMPLE": {
+          "INPUT": "CSV with 50 product rows",
+          "OUTPUT": "Average price across categories: $3.64. Most products fall in the $3-5 range."
+        },
+        "VIOLATION_SIGNATURE": [
+          "Response contains 'average' without individual values",
+          "Response contains 'typically' or 'generally' about specific data",
+          "Row count in output < row count in input",
+          "Decimal precision reduced from source"
+        ]
+      },
+      "ENFORCEMENT": {
+        "CHECKPOINT": "Before outputting any data analysis: Count source rows. Count output rows. They must match unless user requested aggregation.",
+        "RECOVERY": "If violation detected mid-response: STOP. State 'L001 VIOLATION DETECTED - reprocessing with full granularity.' Restart analysis."
+      },
+      "CONTEXT": {
+        "ORIGIN": "Discovered during Etsy micro-niche analysis—aggregated data hid the most profitable opportunities.",
+        "FAILURE_CASE": "Initial analysis returned 'average price $3.50' which masked that Watercolor Clipart ($4.76) had 3x the margin of Seamless Patterns ($1.72)."
+      }
+    },
+
+    "VERSION_MONOTONICITY_L002": {
+      "CRITICALITY": "🔴 CRITICAL",
+      "CORE": {
+        "STATEMENT": "Version numbers must always increment. Never reuse a version identifier. Never decrement.",
+        "MNEMONIC": "TIME'S ARROW RULE"
+      },
+      "BOUNDARY_DEFINITION": {
+        "WHY": "Version reuse causes phantom references—systems point to files that have different content than expected. Debugging becomes impossible.",
+        "STAKES": "Complete loss of auditability. Cannot determine which version introduced a bug. Cannot safely roll back.",
+        "WHEN": [
+          "Creating any new governance file",
+          "Modifying any existing governance file",
+          "Creating registry entries",
+          "Bumping synchronized file sets"
+        ],
+        "SCOPE": ["All versioned assets", "All registries", "All governance files"],
+        "EXCEPTIONS": ["None. This rule has no exceptions."],
+        "IS": "Strict temporal ordering of all file versions",
+        "IS_NOT": "A requirement that every file change be 'significant'—even trivial changes get new versions",
+        "RELATED_RULES": ["REVISION_PROCEDURE_L003", "REGISTRY_INTEGRITY_L004"],
+        "SUPERSEDES": "Any suggestion to 'keep the same version for minor fixes'"
+      },
+      "PATTERN_MATCHING": {
+        "CORRECT_EXAMPLE": {
+          "SEQUENCE": "v2025.12.04.7 → v2025.12.08.1 → v2025.12.08.2"
+        },
+        "INCORRECT_EXAMPLE": {
+          "SEQUENCE": "v2025.12.08.1 → v2025.12.08.2 → v2025.12.08.1 (rollback reusing old number)"
+        },
+        "VIOLATION_SIGNATURE": [
+          "New file has same version as existing file",
+          "Version number is lower than previous",
+          "Registry references version that already exists with different content"
+        ]
+      },
+      "ENFORCEMENT": {
+        "CHECKPOINT": "Before creating any file: Query 'What is the current highest version for this asset type?' New version must be current + 1.",
+        "RECOVERY": "If duplicate version created: Immediately create new version with incremented number. Mark duplicate as corrupted in registry."
+      },
+      "CONTEXT": {
+        "ORIGIN": "R13 failure—registry pointed to v2025.12.04.8 files that were never created.",
+        "FAILURE_CASE": "Framework attempted to load MASTER_PROMPT_v2025.12.04.8 which didn't exist, causing silent failures."
+      }
+    },
+
+    "REVISION_PROCEDURE_L003": {
+      "CRITICALITY": "🔴 CRITICAL",
+      "CORE": {
+        "STATEMENT": "All baseline changes must follow the 4-step revision procedure: State previous → Explain why → Declare new → Mark old deprecated.",
+        "MNEMONIC": "CHANGELOG RITUAL"
+      },
+      "BOUNDARY_DEFINITION": {
+        "WHY": "Without explicit state transitions, drift accumulates invisibly. You cannot debug what you cannot trace.",
+        "STAKES": "Loss of architectural coherence. Contradictory rules accumulate. No clear 'source of truth.'",
+        "WHEN": [
+          "Changing any governance file content",
+          "Updating registry active_versions",
+          "Deprecating any asset",
+          "Introducing new rules or behaviors"
+        ],
+        "SCOPE": ["All governance changes", "All registry updates", "All deprecations"],
+        "EXCEPTIONS": ["Typo fixes that don't change behavior (but still require version bump per L002)"],
+        "IS": "Explicit documentation of state transitions with rationale",
+        "IS_NOT": "Bureaucratic overhead—this IS the mechanism that prevents drift",
+        "RELATED_RULES": ["VERSION_MONOTONICITY_L002", "REGISTRY_INTEGRITY_L004"]
+      },
+      "PATTERN_MATCHING": {
+        "CORRECT_EXAMPLE": {
+          "PROCEDURE": "1. Previous baseline: BEST_PRACTICES_v2025.12.04.7\n2. Reason for revision: Adding conceptual shading for context resilience\n3. New baseline: BEST_PRACTICES_v2025.12.08.1\n4. Deprecated: BEST_PRACTICES_v2025.12.04.7 (superseded)"
+        },
+        "INCORRECT_EXAMPLE": {
+          "PROCEDURE": "Here's the updated BEST_PRACTICES file: [content without stating what changed or why]"
+        },
+        "VIOLATION_SIGNATURE": [
+          "New file appears without revision notes",
+          "Registry updated without deprecated_baselines entry",
+          "Changes made without stating previous state"
+        ]
+      },
+      "ENFORCEMENT": {
+        "CHECKPOINT": "Before any governance output: Can I answer 'What was the previous version and why is it changing?' If no, STOP and establish baseline first.",
+        "RECOVERY": "If procedure skipped: Retroactively document the transition before proceeding."
+      }
+    }
+  },
+
+  "HIGH_PRIORITY_RULES": {
+
+    "REGISTRY_INTEGRITY_L004": {
+      "CRITICALITY": "🟡 HIGH",
+      "CORE": {
+        "STATEMENT": "Registry active_versions must only reference files that actually exist with matching content.",
+        "MNEMONIC": "NO PHANTOM FILES"
+      },
+      "BOUNDARY_DEFINITION": {
+        "WHY": "Phantom references cause silent load failures. The system thinks it has governance but doesn't.",
+        "STAKES": "Framework operates without rules it believes are active. Undefined behavior.",
+        "WHEN": ["Creating or updating any registry", "Bumping version numbers"],
+        "IS": "Every registry pointer resolves to a real, correct file",
+        "IS_NOT": "A suggestion to pre-create empty files—files must have correct content"
+      },
+      "PATTERN_MATCHING": {
+        "CORRECT_EXAMPLE": "Registry says 'master_prompt: v2025.12.08.1' → File MASTER_PROMPT_v2025.12.08.1.json exists with v2025.12.08.1 content",
+        "INCORRECT_EXAMPLE": "Registry says 'master_prompt: v2025.12.08.1' → File doesn't exist OR file exists but contains v2025.12.04.7 content",
+        "VIOLATION_SIGNATURE": ["Registry references version X, file contains version Y", "Registry references file that returns 404"]
+      },
+      "ENFORCEMENT": {
+        "CHECKPOINT": "After creating registry: For each active_version, verify file exists and internal version matches.",
+        "RECOVERY": "If phantom detected: Do not publish registry. Create missing files first."
+      }
+    },
+
+    "FORMAT_CONSISTENCY_L005": {
+      "CRITICALITY": "🟡 HIGH",
+      "CORE": {
+        "STATEMENT": "Version format must be consistent: YYYY.MM.DD.revision for files, YYYY.MM.DD-Rrevision for registries.",
+        "MNEMONIC": "DOTS FOR FILES, DASH-R FOR REGISTRY"
+      },
+      "BOUNDARY_DEFINITION": {
+        "WHY": "Mixed formats break parsing, cause failed lookups, create confusion about which version is 'newer.'",
+        "WHEN": ["Naming any versioned file", "Creating version strings"],
+        "IS": "Strict format adherence for machine parseability",
+        "IS_NOT": "Pedantry—this enables automated validation"
+      },
+      "PATTERN_MATCHING": {
+        "CORRECT_EXAMPLE": {
+          "FILE": "MASTER_PROMPT_v2025.12.08.1.json",
+          "REGISTRY": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14.json"
+        },
+        "INCORRECT_EXAMPLE": {
+          "FILE": "MASTER_PROMPT_v2025-12-08-1.json (dashes instead of dots)",
+          "REGISTRY": "VERSIONING_HUB_REGISTRY_v2025.12.08.R14.json (dot-R instead of dash-R)"
+        }
+      }
+    },
+
+    "THREAD_HEALTH_BP105": {
+      "CRITICALITY": "🟡 HIGH",
+      "CORE": {
+        "STATEMENT": "Thread Health Monitor status must be provided in all major responses.",
+        "MNEMONIC": "VITAL SIGNS CHECK"
+      },
+      "BOUNDARY_DEFINITION": {
+        "WHY": "Context drift is invisible until catastrophic. Regular health checks catch degradation early.",
+        "WHEN": ["All major analytical outputs", "All governance file outputs", "Any response after long thread"],
+        "IS": "Continuous drift detection and reporting",
+        "IS_NOT": "Optional diagnostic—this is MANDATORY"
+      },
+      "PATTERN_MATCHING": {
+        "CORRECT_EXAMPLE": "Response ends with: 'THREAD HEALTH: 🟢 GREEN | Context: ~45% | Drift: None detected'",
+        "VIOLATION_SIGNATURE": ["Major response with no health status", "Health status missing for 3+ consecutive responses"]
+      }
+    },
+
+    "FILE_UPLOAD_PRIORITY_BP106": {
+      "CRITICALITY": "🟡 HIGH",
+      "CORE": {
+        "STATEMENT": "Prefer user file uploads as stable memory over external fetches or prompt pasting.",
+        "MNEMONIC": "UPLOAD OVER PASTE"
+      },
+      "BOUNDARY_DEFINITION": {
+        "WHY": "Uploaded files are persistent, don't consume prompt tokens, and can be re-referenced reliably.",
+        "WHEN": ["Thread initialization", "Loading governance files", "Any heavy data context"],
+        "IS": "Efficient context management via file system",
+        "IS_NOT": "A ban on pasting—short snippets are fine"
+      }
+    }
+  },
+
+  "STANDARD_RULES": {
+
+    "GEMINI_AUTHORITY_BP107": {
+      "CRITICALITY": "🟢 MEDIUM",
+      "CORE": {
+        "STATEMENT": "Gemini is the primary architect and authorizes all registry changes.",
+        "MNEMONIC": "GEMINI SIGNS OFF"
+      },
+      "BOUNDARY_DEFINITION": {
+        "SCOPE": ["Registry modifications", "Governance file changes", "Architecture decisions"],
+        "IS": "Clear ownership and approval chain",
+        "IS_NOT": "A ban on other models contributing—they can propose, Gemini approves"
+      }
+    },
+
+    "MULTI_AGENT_ROLES_BP108": {
+      "CRITICALITY": "🟢 MEDIUM",
+      "CORE": {
+        "STATEMENT": "Gemini=architect, ChatGPT=executor, Grok=auditor, Claude=reviewer."
+      },
+      "BOUNDARY_DEFINITION": {
+        "IS": "Clear role separation to prevent conflicts",
+        "IS_NOT": "Rigid—roles can flex if explicitly declared"
+      }
+    },
+
+    "JSON_CLEANLINESS_BP109": {
+      "CRITICALITY": "🟢 MEDIUM",
+      "CORE": {
+        "STATEMENT": "All JSON must use double quotes, no comments, no trailing commas."
+      },
+      "PATTERN_MATCHING": {
+        "CORRECT_EXAMPLE": "{\"key\": \"value\"}",
+        "INCORRECT_EXAMPLE": "{'key': 'value',} // with comment"
+      }
+    }
+  },
+
+  "ANTI_PATTERNS": {
+    "DESCRIPTION": "Explicitly documented bad patterns to help the model recognize and avoid them.",
+    
+    "AP001_DUPLICATION_FOR_EMPHASIS": {
+      "PATTERN": "Repeating a rule multiple times thinking it will be 'stronger'",
+      "WHY_BAD": "Wastes tokens, dilutes attention, violates lossless principles",
+      "EXAMPLE": "L001_COPY_1, L001_COPY_2... L001_COPY_10",
+      "INSTEAD": "Use conceptual shading—define boundaries, not copies"
+    },
+    
+    "AP002_PHANTOM_REFERENCES": {
+      "PATTERN": "Creating registry entries pointing to files that don't exist yet",
+      "WHY_BAD": "Silent load failures, undefined system state",
+      "EXAMPLE": "Registry says v2025.12.04.8, file doesn't exist",
+      "INSTEAD": "Create files BEFORE updating registry to reference them"
+    },
+    
+    "AP003_FORMAT_MIXING": {
+      "PATTERN": "Using inconsistent version formats (dots vs dashes)",
+      "WHY_BAD": "Parsing failures, sorting errors, lookup misses",
+      "EXAMPLE": "v2025.12.04-R13 vs v2025-12-04-R13",
+      "INSTEAD": "Strict format: dots for files, dash-R for registries"
+    },
+    
+    "AP004_SILENT_CHANGES": {
+      "PATTERN": "Modifying governance without revision procedure",
+      "WHY_BAD": "Invisible drift, no audit trail, debugging impossible",
+      "EXAMPLE": "Updated BEST_PRACTICES without stating previous baseline",
+      "INSTEAD": "Always: state previous → explain why → declare new → deprecate old"
+    },
+    
+    "AP005_CARGO_CULT_PROMPTING": {
+      "PATTERN": "Mimicking surface patterns without understanding mechanism",
+      "WHY_BAD": "Creates illusion of compliance while breaking intent",
+      "EXAMPLE": "Told to 'shade like SNES' → made 10 copies instead of defining edges",
+      "INSTEAD": "Understand WHY the pattern works, then implement the mechanism"
+    }
+  },
+
+  "SHADING_SCHEMA_META": {
+    "DESCRIPTION": "This section documents the conceptual shading framework itself.",
+    "DIMENSIONS_AVAILABLE": [
+      "STATEMENT - The rule itself",
+      "MNEMONIC - Unique memorable phrase",
+      "WHY - Rationale for the rule",
+      "STAKES - Consequences of violation", 
+      "WHEN - Activation triggers",
+      "SCOPE - Applicable domains",
+      "EXCEPTIONS - When rule doesn't apply",
+      "IS - Positive boundary",
+      "IS_NOT - Negative boundary",
+      "RELATED_RULES - Cross-references",
+      "SUPERSEDES - What this replaces",
+      "CORRECT_EXAMPLE - Compliant pattern",
+      "INCORRECT_EXAMPLE - Violation pattern",
+      "VIOLATION_SIGNATURE - Detection markers",
+      "CHECKPOINT - Self-validation prompt",
+      "RECOVERY - Violation response procedure",
+      "ORIGIN - Why rule was created",
+      "FAILURE_CASE - Historical failure that motivated rule"
+    ],
+    "DEPTH_GUIDANCE": {
+      "CRITICAL": "Use 12-15 dimensions",
+      "HIGH": "Use 8-10 dimensions", 
+      "MEDIUM": "Use 5-7 dimensions",
+      "LOW": "Use 3-4 dimensions"
+    },
+    "DESIGN_PRINCIPLE": "Shading pixels must be DIFFERENT from core pixel. Define edges through contrast, examples, and boundaries—never through repetition."
+  },
+
+  "revision_notes": {
+    "previous_baseline": "BEST_PRACTICES_v2025.12.04.7_JSON",
+    "reason_for_revision": "R14 recovery: Implemented conceptual shading framework for context resilience. Replaced corrupted v2025.12.05.2 which used anti-pattern AP001 (10x duplication).",
+    "new_baseline": "BEST_PRACTICES_v2025.12.08.1_JSON",
+    "deprecated_baselines": [
+      "BEST_PRACTICES_v2025.12.04.7_JSON",
+      "BEST_PRACTICES_v2025.12.05.2_JSON"
+    ],
+    "new_in_this_version": [
+      "Conceptual shading schema with 18 available dimensions",
+      "Criticality-based shading depth guidance",
+      "ANTI_PATTERNS section for explicit negative-space definition",
+      "MNEMONIC anchors for all critical rules",
+      "VIOLATION_SIGNATURE patterns for self-detection",
+      "CHECKPOINT and RECOVERY enforcement mechanisms"
+    ]
+  }
+}
