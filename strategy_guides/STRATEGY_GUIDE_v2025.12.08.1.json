@@ -10,7 +10,8 @@
     "L001_FISHEYE_LENS": {
       "APPLIES_TO": "All Etsy market research and niche analysis",
       "CHECKPOINT": "Before any market analysis output: Are all data rows individually represented?",
-      "WHY_CRITICAL_HERE": "Aggregated market data hides the micro-niches this entire strategy depends on. Compression = missed alpha."
+      "WHY_CRITICAL_HERE": "Aggregated market data hides the micro-niches this entire strategy depends on. Compression = missed alpha.",
+      "FAILURE_EXAMPLE": "Initial analysis returned 'average price $3.50' which masked that Watercolor Clipart ($4.76) had 3x the margin of Seamless Patterns ($1.72)."
     }
   },
 
@@ -23,8 +24,9 @@
     ],
     "shading": {
       "IS": "A profit-first approach targeting underserved niches with premium pricing",
-      "IS_NOT": "A volume play - we are NOT trying to compete on quantity or low prices",
-      "WHY": "1-person operation cannot compete on volume. Must compete on quality and niche targeting."
+      "IS_NOT": "A volume play—we are NOT trying to compete on quantity or low prices",
+      "WHY": "1-person operation cannot compete on volume. Must compete on quality and niche targeting.",
+      "CHECKPOINT": "Before any product decision: Does this align with premium pricing and low-support goals?"
     }
   },
 
@@ -33,6 +35,7 @@
     
     "ART_GENERATION_MANDATE": {
       "STATEMENT": "Prioritize styles easy for AI to generate. AVOID likenesses, complex typography, and styles requiring heavy external graphic design.",
+      "MNEMONIC": "EASY FOR AI, HARD FOR HUMANS",
       "POSITIVE_BOUNDARY": [
         "Repeating patterns",
         "Stylized art (watercolor, vintage, botanical)",
@@ -46,13 +49,14 @@
         "Photorealistic scenes (uncanny valley risk)",
         "Styles requiring Photoshop compositing"
       ],
-      "CORRECT_EXAMPLE": "Watercolor floral clipart bundle - clean edges, no text, easy to generate consistently",
-      "INCORRECT_EXAMPLE": "Custom pet portrait from photo - requires likeness accuracy AI can't guarantee",
+      "CORRECT_EXAMPLE": "Watercolor floral clipart bundle—clean edges, no text, easy to generate consistently",
+      "INCORRECT_EXAMPLE": "Custom pet portrait from photo—requires likeness accuracy AI cannot guarantee",
       "CHECKPOINT": "Before starting any design: Can this be generated cleanly in 1-3 attempts without manual editing?"
     },
 
     "SUPPORT_LOAD_MANDATE": {
       "STATEMENT": "Prioritize niches that minimize customer support. AVOID complex file formats and listings requiring custom editing.",
+      "MNEMONIC": "DOWNLOAD AND DONE",
       "POSITIVE_BOUNDARY": [
         "Single-PNG clipart bundles with clear cut lines",
         "Simple JPG downloads (wallpapers, prints)",
@@ -65,13 +69,14 @@
         "Listings requiring custom editing per order",
         "Products needing usage instructions longer than 3 sentences"
       ],
-      "CORRECT_EXAMPLE": "50-piece watercolor clipart PNG bundle - download, drag, drop, done",
-      "INCORRECT_EXAMPLE": "Customizable wedding invitation suite - requires back-and-forth with customer",
-      "CHECKPOINT": "Before listing any product: Will this generate support tickets? If answer isn't 'almost never', reconsider."
+      "CORRECT_EXAMPLE": "50-piece watercolor clipart PNG bundle—download, drag, drop, done",
+      "INCORRECT_EXAMPLE": "Customizable wedding invitation suite—requires back-and-forth with customer",
+      "CHECKPOINT": "Before listing any product: Will this generate support tickets? If answer is not 'almost never', reconsider."
     },
 
     "RESOURCE_CEILING": {
       "STATEMENT": "OPERATOR IS A 1-PERSON AI ARTIST ONLY. No reliance on external illustration, manual drawing, or secondary graphic design resources.",
+      "MNEMONIC": "SOLO OPERATOR",
       "IMPLICATION": "Every product must be completable end-to-end with available AI tools + GIMP for minor touch-ups",
       "AVAILABLE_RESOURCES": [
         "Gemini (strategy, analysis, text)",
@@ -84,7 +89,8 @@
         "Manual drawing/painting",
         "Professional graphic design software expertise (Illustrator, InDesign)",
         "Photography or physical product creation"
-      ]
+      ],
+      "CHECKPOINT": "Before committing to any product line: Can I complete this entirely with my available tools?"
     }
   },
 
@@ -97,8 +103,9 @@
       "why_rank_1": "High price, easy AI generation, minimal support, proven demand",
       "l001_note": "Must analyze individual listings, not category averages, to find specific winning sub-niches",
       "shading": {
-        "IS": "Primary revenue foundation - start here",
-        "IS_NOT": "The only category - but must be established before expanding"
+        "IS": "Primary revenue foundation—start here",
+        "IS_NOT": "The only category—but must be established before expanding",
+        "CHECKPOINT": "Do not expand to RANK_2 until 10+ RANK_1 listings are live and validated"
       }
     },
     
@@ -106,21 +113,24 @@
       "category": "Western Sublimation",
       "avg_price": "$4.43",
       "why_rank_2": "Strong price, underserved niche, aesthetic fits AI capabilities well",
-      "l001_note": "Micro-niche within sublimation - L001 analysis revealed this specific opportunity",
+      "l001_note": "Micro-niche within sublimation—L001 analysis revealed this specific opportunity",
       "shading": {
         "IS": "High-alpha expansion opportunity after foundation established",
-        "IS_NOT": "Starting point - build watercolor foundation first"
+        "IS_NOT": "Starting point—build watercolor foundation first",
+        "CHECKPOINT": "Only pursue after RANK_1 foundation is stable"
       }
     },
     
     "RANK_3_AVOID_TRAP": {
       "category": "Seamless Pattern Bundles",
       "avg_price": "$1.72",
-      "why_rank_3": "LOW PRICE TRAP - high competition, race to bottom",
+      "why_rank_3": "LOW PRICE TRAP—high competition, race to bottom",
       "l001_note": "Aggregated data made this look viable. L001 granular analysis revealed price compression.",
       "shading": {
         "IS": "A warning example of what aggregated data hides",
-        "IS_NOT": "A viable category for this strategy - AVOID"
+        "IS_NOT": "A viable category for this strategy—AVOID",
+        "WHY": "Price point violates premium pricing principle. High volume needed = high support = burnout.",
+        "ANTI_PATTERN": "SAP003_AGGREGATED_RESEARCH"
       }
     }
   },
@@ -137,9 +147,10 @@
       },
       "INCORRECT_EXAMPLE": {
         "title": "Beautiful Digital Floral Bundle - Sunflower Watercolor Clipart PNG",
-        "note": "Keyword buried after generic words"
+        "note": "Keyword buried after generic words—SEO value wasted"
       },
-      "WHY": "Etsy's algorithm weights title beginning heavily. Burying keywords wastes SEO value."
+      "WHY": "Etsy's algorithm weights title beginning heavily. Burying keywords wastes SEO value.",
+      "CHECKPOINT": "Before publishing: Is the highest-alpha keyword the FIRST words in the title?"
     }
   },
 
@@ -151,8 +162,9 @@
     ],
     "shading": {
       "IS": "Traffic generation experiment to validate Etsy algorithm response",
-      "IS_NOT": "Primary sales channel - Etsy organic is the goal",
-      "CHECKPOINT": "Every social post must include a direct Etsy listing link"
+      "IS_NOT": "Primary sales channel—Etsy organic is the goal",
+      "CHECKPOINT": "Every social post must include a direct Etsy listing link",
+      "SUCCESS_METRIC": "Did the linked listing see increased views within 24 hours?"
     }
   },
 
@@ -162,25 +174,37 @@
     "SAP001_CATEGORY_HOPPING": {
       "PATTERN": "Switching product categories before establishing foundation",
       "WHY_BAD": "Spreads effort thin, no momentum in any category, confuses Etsy algorithm",
-      "INSTEAD": "Push RANK_1 (Watercolor Clipart) to 10+ listings before considering RANK_2"
+      "INSTEAD": "Push RANK_1 (Watercolor Clipart) to 10+ listings before considering RANK_2",
+      "VIOLATION_SIGNATURE": "Started RANK_2 products with fewer than 10 RANK_1 listings live"
     },
     
     "SAP002_PRICE_RACE": {
       "PATTERN": "Lowering prices to compete with high-volume sellers",
       "WHY_BAD": "1-person operation cannot win on volume. Low prices = more sales needed = more support = burnout",
-      "INSTEAD": "Maintain $4+ pricing, compete on quality and niche targeting"
+      "INSTEAD": "Maintain $4+ pricing, compete on quality and niche targeting",
+      "VIOLATION_SIGNATURE": "Listing created with price below $4.00"
     },
     
     "SAP003_AGGREGATED_RESEARCH": {
       "PATTERN": "Making product decisions based on category averages",
       "WHY_BAD": "Violates L001. Averages hide the micro-niches where alpha exists.",
-      "INSTEAD": "Always analyze individual listings. Look for <300 listings + >500 searches."
+      "INSTEAD": "Always analyze individual listings. Look for <300 listings + >500 searches.",
+      "VIOLATION_SIGNATURE": "Decision justified with 'average' or 'typical' without row-level data",
+      "RELATED_RULE": "L001_FISHEYE_LENS"
     },
     
     "SAP004_SUPPORT_HEAVY_PRODUCTS": {
       "PATTERN": "Creating products that require customer interaction",
-      "WHY_BAD": "Support time scales linearly with sales. Kills profitability.",
-      "INSTEAD": "Design for zero-touch fulfillment. Download and done."
+      "WHY_BAD": "Support time scales linearly with sales. Kills profitability for solo operator.",
+      "INSTEAD": "Design for zero-touch fulfillment. Download and done.",
+      "VIOLATION_SIGNATURE": "Product requires customization, multiple file formats, or detailed instructions"
+    },
+
+    "SAP005_PREMATURE_EXPANSION": {
+      "PATTERN": "Expanding to new categories, platforms, or strategies before current one is validated",
+      "WHY_BAD": "Divides attention, prevents learning from current approach, creates half-finished initiatives",
+      "INSTEAD": "Complete current phase validation before expanding scope",
+      "VIOLATION_SIGNATURE": "New initiative started before current phase success metrics achieved"
     }
   },
 
@@ -189,36 +213,80 @@
     
     "BEFORE_MARKET_RESEARCH": [
       "L001 ACTIVE: Will process all data rows individually",
-      "Will not aggregate or average until full data is visible"
+      "Will not aggregate or average until full data is visible",
+      "Micro-niche criteria ready: <300 listings, >500 searches, >$4 avg price"
     ],
     
     "BEFORE_PRODUCT_DECISION": [
       "Does this fit ART_GENERATION_MANDATE? (Easy for AI)",
       "Does this fit SUPPORT_LOAD_MANDATE? (Minimal support)",
       "Does this fit RESOURCE_CEILING? (Completable solo)",
-      "Is price point $4+?"
+      "Is price point $4+?",
+      "Does this fit current phase? (No premature expansion)"
     ],
     
     "BEFORE_LISTING_CREATION": [
       "Highest-alpha keyword is FIRST in title",
       "All 13 tags utilized",
-      "Product requires no customer interaction post-purchase"
+      "Product requires no customer interaction post-purchase",
+      "Price is $4.00 or higher",
+      "Files are simple PNG/JPG only"
+    ],
+
+    "BEFORE_CATEGORY_EXPANSION": [
+      "Current RANK has 10+ live listings",
+      "Current RANK shows positive conversion signal",
+      "Expansion target identified via L001-compliant analysis",
+      "Expansion fits all operational constraints"
     ]
+  },
+
+  "success_metrics": {
+    "PHASE_1_FOUNDATION": {
+      "goal": "Establish Watercolor Clipart presence",
+      "metrics": [
+        "10+ live listings in RANK_1 category",
+        "At least 1 sale (proof of concept)",
+        "Views > 100 across listings (algorithm recognition)"
+      ],
+      "timeline": "First 30 days"
+    },
+    "PHASE_2_VALIDATION": {
+      "goal": "Validate premium pricing and conversion",
+      "metrics": [
+        "Conversion rate > 1% on at least 3 listings",
+        "Average sale price > $4.00 maintained",
+        "Support tickets < 1 per 10 sales"
+      ],
+      "timeline": "Days 30-60"
+    },
+    "PHASE_3_EXPANSION": {
+      "goal": "Expand to RANK_2 if PHASE_2 validated",
+      "metrics": [
+        "5+ live listings in RANK_2 category",
+        "RANK_1 conversion maintained during expansion"
+      ],
+      "timeline": "Days 60-90",
+      "gate": "Only proceed if PHASE_2 metrics achieved"
+    }
   },
 
   "revision_notes": {
     "previous_baseline": "STRATEGY_GUIDE_v2025.12.04.2_JSON",
-    "reason_for_revision": "R14 recovery: Added conceptual shading throughout, explicit L001 integration, strategy-specific anti-patterns (SAP001-SAP004), execution checkpoints.",
+    "reason_for_revision": "R14 recovery: Added conceptual shading throughout, explicit L001 integration with failure example, strategy-specific anti-patterns (SAP001-SAP005), execution checkpoints, success metrics with phase gates.",
     "new_baseline": "STRATEGY_GUIDE_v2025.12.08.1_JSON",
     "deprecated_baseline": "STRATEGY_GUIDE_v2025.12.04.2_JSON",
     "changes_in_this_version": [
-      "Added CRITICAL_INTEGRATION section linking to L001",
-      "Added shading (IS/IS_NOT/WHY) to all major sections",
+      "Added CRITICAL_INTEGRATION section linking to L001 with failure example",
+      "Added shading (IS/IS_NOT/WHY/CHECKPOINT) to all major sections",
+      "Added MNEMONIC anchors to operational constraints",
       "Added POSITIVE_BOUNDARY/NEGATIVE_BOUNDARY to operational constraints",
       "Added CORRECT_EXAMPLE/INCORRECT_EXAMPLE throughout",
-      "Added ANTI_PATTERNS_STRATEGY section (SAP001-SAP004)",
-      "Added execution_checkpoints for validation gates",
-      "Added L001_NOTE to each strategic hierarchy rank"
+      "Added ANTI_PATTERNS_STRATEGY section (SAP001-SAP005)",
+      "Added execution_checkpoints for all major decision types",
+      "Added success_metrics with phase gates",
+      "Added L001_NOTE to each strategic hierarchy rank",
+      "Added VIOLATION_SIGNATURE to all anti-patterns"
     ]
   }
 }
