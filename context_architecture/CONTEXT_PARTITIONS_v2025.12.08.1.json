@@ -1,0 +1,436 @@
+{
+  "context_partitions_version": "2025-12-08.1",
+  "asset_id": "CONTEXT_PARTITIONS_v2025.12.08.1_JSON",
+  "shading_schema_version": "1.0",
+  "description": "Token Wall system for semantic segmentation of context window. Creates conceptual partitions that help the model treat different content with appropriate access rules.",
+
+  "CORE_CONCEPT": {
+    "STATEMENT": "The context window is one flat token stream. Token Walls create conceptual partitions that exist in semantic space, not code.",
+    "MNEMONIC": "WALLS IN THE MIND",
+    "WHY": "LLMs treat all context equally by default. Explicit partition markers with distinct visual signatures prime the model to apply different rules to different zones.",
+    "shading": {
+      "IS": "Semantic segmentation via structural cues and explicit zone markers",
+      "IS_NOT": "Actual memory isolation—the model CAN access all zones, walls define SHOULD behavior",
+      "ANALOGY": "Like rooms in a house—no physical barrier stops you walking anywhere, but you knock before entering the bedroom"
+    }
+  },
+
+  "WALL_TYPES": {
+    "_PURPOSE": "Hierarchy of partition strength from impenetrable to open",
+    
+    "CASTLE_WALL": {
+      "emoji": "🏰",
+      "visual_marker": "╔═══════════════════════════════════════╗",
+      "height": "MAXIMUM",
+      "material": "STONE",
+      "thickness": "IMPENETRABLE",
+      "permeability": "NONE without ritual",
+      "use_case": "Core governance rules that must never be modified casually",
+      "crossing_cost": "HIGH - requires full L003 CHANGELOG RITUAL",
+      "shading": {
+        "IS": "The most protected content—foundational rules",
+        "IS_NOT": "A suggestion—crossing without ritual is a violation"
+      }
+    },
+    
+    "BRICK_WALL": {
+      "emoji": "🧱",
+      "visual_marker": "████████████████████████████████████████",
+      "height": "HIGH",
+      "material": "BRICK",
+      "thickness": "SOLID",
+      "permeability": "LOW - explicit permission required",
+      "use_case": "Sensitive data, credentials, locked decisions",
+      "crossing_cost": "MEDIUM - requires explicit user permission",
+      "shading": {
+        "IS": "Protected content that CAN change but shouldn't change casually",
+        "IS_NOT": "As immutable as castle walls—but still requires permission"
+      }
+    },
+    
+    "PICKET_FENCE": {
+      "emoji": "🏠",
+      "visual_marker": "─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─",
+      "height": "MEDIUM",
+      "material": "WOOD",
+      "thickness": "PERMEABLE",
+      "permeability": "MEDIUM - visible, crossable with awareness",
+      "use_case": "Strategy, preferences, decisions that can evolve",
+      "crossing_cost": "LOW - checkpoint required but not ritual",
+      "shading": {
+        "IS": "Boundaries you should notice and acknowledge when crossing",
+        "IS_NOT": "Barriers—these guide, not block"
+      }
+    },
+    
+    "HEDGE": {
+      "emoji": "🌿",
+      "visual_marker": "≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈",
+      "height": "LOW",
+      "material": "ORGANIC",
+      "thickness": "SOFT",
+      "permeability": "HIGH - natural separation, easy crossing",
+      "use_case": "Related but distinct topics, analysis sections",
+      "crossing_cost": "MINIMAL - just acknowledge the transition",
+      "shading": {
+        "IS": "Soft boundaries for organization, not protection",
+        "IS_NOT": "Security—these are for clarity, not access control"
+      }
+    },
+    
+    "NO_WALL": {
+      "emoji": "💬",
+      "visual_marker": "(open space)",
+      "height": "ZERO",
+      "material": "AIR",
+      "thickness": "ZERO",
+      "permeability": "TOTAL - free movement",
+      "use_case": "Active conversation, working memory",
+      "crossing_cost": "NONE",
+      "shading": {
+        "IS": "The active workspace where work happens",
+        "IS_NOT": "Protected in any way—this is ephemeral working memory"
+      }
+    }
+  },
+
+  "ZONES": {
+    "_PURPOSE": "Pre-defined context zones with assigned wall types and contents",
+    
+    "GOVERNANCE_ZONE": {
+      "wall_type": "CASTLE_WALL",
+      "emoji": "🏰",
+      "visual_header": "╔═══════════════════════════════════════╗\n║  🏰 GOVERNANCE ZONE (Castle Wall)     ║\n╚═══════════════════════════════════════╝",
+      "contents": [
+        "@ACTIVE_MASTER_PROMPT",
+        "@ACTIVE_BEST_PRACTICES",
+        "@ACTIVE_REGISTRY",
+        "@ACTIVE_RUNTIME_SETTINGS",
+        "@ACTIVE_CONTEXT_PARTITIONS"
+      ],
+      "access_rules": {
+        "read": "ALWAYS_ALLOWED",
+        "write": "REQUIRES_L003_RITUAL",
+        "reference": "ENCOURAGED",
+        "compress": "NEVER"
+      },
+      "crossing_protocol": {
+        "inbound": "Free—reading governance is always permitted",
+        "outbound": "DRAWBRIDGE—requires L003 (state baseline → explain why → declare new → deprecate old)"
+      },
+      "zone_purpose": "Immutable foundation. Rules that govern all other zones.",
+      "shading": {
+        "IS": "The constitution—everything else derives authority from here",
+        "IS_NOT": "Suggestions or guidelines—these are LAWS",
+        "WHY_CASTLE": "Casual modification of governance caused R13 corruption. Maximum protection required."
+      }
+    },
+    
+    "STRATEGY_ZONE": {
+      "wall_type": "PICKET_FENCE",
+      "emoji": "🏠",
+      "visual_header": "─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─\n  🏠 STRATEGY ZONE (Picket Fence)\n─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─",
+      "contents": [
+        "@ACTIVE_STRATEGY_GUIDE",
+        "Market_Analysis_Results",
+        "Product_Decisions",
+        "Locked_Choices"
+      ],
+      "access_rules": {
+        "read": "ALWAYS_ALLOWED",
+        "write": "REQUIRES_SAP_CHECKPOINT",
+        "reference": "ENCOURAGED",
+        "compress": "NEVER"
+      },
+      "crossing_protocol": {
+        "inbound": "Free from lower zones",
+        "outbound": "GARDEN_GATE—check SAP001-SAP005 before acting on strategy"
+      },
+      "zone_purpose": "Business decisions that can evolve but require validation.",
+      "shading": {
+        "IS": "The business plan—can change but changes have consequences",
+        "IS_NOT": "As immutable as governance—but not casual either",
+        "WHY_PICKET": "Strategy should be visible and crossable, but you should notice when you're changing it."
+      }
+    },
+    
+    "ANALYSIS_ZONE": {
+      "wall_type": "HEDGE",
+      "emoji": "🌿",
+      "visual_header": "≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈\n  🌿 ANALYSIS ZONE (Hedge)\n≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈",
+      "contents": [
+        "CSV_Data",
+        "Research_Outputs",
+        "Calculations",
+        "Intermediate_Results"
+      ],
+      "access_rules": {
+        "read": "ALWAYS_ALLOWED",
+        "write": "L001_CHECKPOINT_REQUIRED",
+        "reference": "FREE",
+        "compress": "ONLY_IF_USER_EXPLICITLY_REQUESTS"
+      },
+      "crossing_protocol": {
+        "inbound": "Free",
+        "outbound": "L001_GATE—verify FISHEYE LENS compliance before outputting analysis"
+      },
+      "zone_purpose": "Working data. The raw material for decisions.",
+      "shading": {
+        "IS": "Input data and intermediate results—the factory floor",
+        "IS_NOT": "Governance or strategy—this is INPUT not RULES",
+        "WHY_HEDGE": "Data needs organization but not protection. L001 protects data integrity, not the zone boundary."
+      }
+    },
+    
+    "CONVERSATION_ZONE": {
+      "wall_type": "NO_WALL",
+      "emoji": "💬",
+      "visual_header": "💬 CONVERSATION ZONE (Open Air)",
+      "contents": [
+        "Current_Task",
+        "User_Messages",
+        "Assistant_Responses",
+        "Working_Memory"
+      ],
+      "access_rules": {
+        "read": "FREE",
+        "write": "FREE",
+        "reference": "FREE",
+        "compress": "ALLOWED_NATURALLY"
+      },
+      "crossing_protocol": {
+        "inbound": "Free from all zones",
+        "outbound": "Free to Analysis Zone, checkpoints for higher zones"
+      },
+      "zone_purpose": "Active workspace. Ephemeral by nature.",
+      "shading": {
+        "IS": "The desk where work happens—temporary, active, changing",
+        "IS_NOT": "Permanent memory—old conversation naturally compresses",
+        "WHY_NO_WALL": "This is where you work. No barriers to doing the work."
+      }
+    }
+  },
+
+  "CROSSING_PROTOCOLS": {
+    "_PURPOSE": "Explicit rules for moving content or authority between zones",
+    
+    "DRAWBRIDGE": {
+      "name": "L003 Drawbridge",
+      "applies_to": "Exiting GOVERNANCE_ZONE (modifying governance)",
+      "protocol": [
+        "1. HALT—Stop current action",
+        "2. STATE—Declare previous baseline explicitly",
+        "3. EXPLAIN—Provide specific rationale for change",
+        "4. DECLARE—Name new baseline version",
+        "5. DEPRECATE—Mark old baseline deprecated",
+        "6. PROCEED—Only then execute the change"
+      ],
+      "violation_response": "BLOCK action, require full protocol completion",
+      "visual_cue": "[🏰 DRAWBRIDGE CROSSING - L003 REQUIRED]"
+    },
+    
+    "GARDEN_GATE": {
+      "name": "SAP Checkpoint Gate",
+      "applies_to": "Exiting STRATEGY_ZONE (acting on strategy)",
+      "protocol": [
+        "1. CHECK SAP001—Am I category hopping before foundation?",
+        "2. CHECK SAP002—Am I racing to bottom on price?",
+        "3. CHECK SAP003—Am I using aggregated data for decisions?",
+        "4. CHECK SAP004—Does this create support burden?",
+        "5. CHECK SAP005—Am I expanding prematurely?",
+        "6. PROCEED—If all checks pass"
+      ],
+      "violation_response": "FLAG specific SAP violation, recommend correction",
+      "visual_cue": "[🏠 GARDEN GATE - SAP CHECK]"
+    },
+    
+    "L001_GATE": {
+      "name": "Fisheye Lens Gate",
+      "applies_to": "Exiting ANALYSIS_ZONE (outputting data analysis)",
+      "protocol": [
+        "1. COUNT—How many rows in source data?",
+        "2. COUNT—How many rows in output?",
+        "3. COMPARE—Do they match?",
+        "4. IF MISMATCH—Did user explicitly request aggregation?",
+        "5. IF NO—Reprocess with full granularity",
+        "6. PROCEED—Only with lossless output"
+      ],
+      "violation_response": "STOP, state 'L001 VIOLATION', reprocess",
+      "visual_cue": "[🌿 L001 GATE - FISHEYE CHECK]"
+    },
+    
+    "FREE_PASSAGE": {
+      "name": "No Checkpoint",
+      "applies_to": "Movement within or into CONVERSATION_ZONE",
+      "protocol": ["PROCEED—No checkpoint required"],
+      "visual_cue": null
+    }
+  },
+
+  "ZONE_HIERARCHY": {
+    "_PURPOSE": "Visual representation of zone relationships",
+    "diagram": [
+      "┌─────────────────────────────────────────────────────────────┐",
+      "│                     FULL CONTEXT WINDOW                     │",
+      "│                                                             │",
+      "│  ╔═══════════════════════════════════════╗                 │",
+      "│  ║  🏰 GOVERNANCE ZONE                   ║                 │",
+      "│  ║  Castle Wall • L003 Drawbridge Exit   ║                 │",
+      "│  ║  [Master, Best Practices, Registry,   ║                 │",
+      "│  ║   Runtime, Context Partitions]        ║                 │",
+      "│  ╚═══════════════════════════════════════╝                 │",
+      "│                        │                                    │",
+      "│                 [🏰 DRAWBRIDGE]                             │",
+      "│                   L003 Protocol                             │",
+      "│                        │                                    │",
+      "│  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─                   │",
+      "│    🏠 STRATEGY ZONE                                         │",
+      "│    Picket Fence • SAP Gate Exit                            │",
+      "│    [Strategy Guide, Market Analysis, Decisions]            │",
+      "│  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─                   │",
+      "│                        │                                    │",
+      "│                 [🏠 GARDEN GATE]                            │",
+      "│                   SAP Checkpoint                            │",
+      "│                        │                                    │",
+      "│  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈                │",
+      "│    🌿 ANALYSIS ZONE                                         │",
+      "│    Hedge • L001 Gate Exit                                   │",
+      "│    [CSV Data, Research, Calculations]                      │",
+      "│  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈                │",
+      "│                        │                                    │",
+      "│                 [🌿 L001 GATE]                              │",
+      "│                   Fisheye Check                             │",
+      "│                        │                                    │",
+      "│    💬 CONVERSATION ZONE                                     │",
+      "│    Open Air • Free Movement                                 │",
+      "│    [Current Task, Messages, Working Memory]                │",
+      "│                                                             │",
+      "└─────────────────────────────────────────────────────────────┘"
+    ],
+    "flow_direction": "Governance flows DOWN (read access). Changes flow UP (require crossing protocols)."
+  },
+
+  "REFERENCE_RESOLUTION": {
+    "_PURPOSE": "Documents the @ACTIVE_* loose coupling pattern for resilient updates",
+    "MNEMONIC": "POINTERS NOT VERSIONS",
+    
+    "concept": {
+      "STATEMENT": "Files reference ROLES (@ACTIVE_*), not specific versions. The registry resolves roles to versions at load time.",
+      "WHY": "Eliminates cascade updates. Only registry needs to change when versions update.",
+      "shading": {
+        "IS": "Indirection layer that decouples files from each other",
+        "IS_NOT": "Magic—the registry is still the source of truth"
+      }
+    },
+    
+    "syntax": {
+      "@ACTIVE_REGISTRY": "Resolves to current registry version",
+      "@ACTIVE_MASTER_PROMPT": "Resolves to registry.active_versions.master_prompt",
+      "@ACTIVE_BEST_PRACTICES": "Resolves to registry.active_versions.best_practices",
+      "@ACTIVE_RUNTIME_SETTINGS": "Resolves to registry.active_versions.runtime_settings",
+      "@ACTIVE_STRATEGY_GUIDE": "Resolves to registry.active_versions.strategy_guide",
+      "@ACTIVE_CONTEXT_PARTITIONS": "Resolves to registry.active_versions.context_partitions"
+    },
+    
+    "resolution_example": {
+      "reference_in_file": "See @ACTIVE_BEST_PRACTICES for L001 details",
+      "registry_lookup": "active_versions.best_practices = 'BEST_PRACTICES_v2025.12.08.1_JSON'",
+      "resolved_to": "See BEST_PRACTICES_v2025.12.08.1_JSON for L001 details"
+    },
+    
+    "update_scenarios": {
+      "add_new_file": {
+        "steps": ["Create new file", "Add to registry.active_versions"],
+        "files_changed": 2,
+        "cascade": "NONE"
+      },
+      "update_existing_file": {
+        "steps": ["Create new version", "Update registry.active_versions pointer"],
+        "files_changed": 2,
+        "cascade": "NONE"
+      },
+      "rollback": {
+        "steps": ["Change registry.active_versions pointer to older version"],
+        "files_changed": 1,
+        "cascade": "NONE"
+      }
+    },
+    
+    "anti_pattern": {
+      "id": "AP006_HARDCODED_VERSIONS",
+      "PATTERN": "Referencing specific versions instead of @ACTIVE_* roles",
+      "WHY_BAD": "Creates tight coupling. One version change cascades to all files.",
+      "INSTEAD": "Use @ACTIVE_* references. Let registry resolve versions.",
+      "EXCEPTION": "revision_notes sections MAY use specific versions for historical accuracy"
+    }
+  },
+
+  "CONTEXT_HEALTH_INTEGRATION": {
+    "_PURPOSE": "How token walls integrate with thread health monitoring",
+    
+    "zone_health_metrics": {
+      "GOVERNANCE_ZONE": {
+        "expected_state": "STATIC—should never change mid-thread",
+        "drift_signature": "Any modification without L003 drawbridge crossing",
+        "health_impact": "🔴 CRITICAL if violated"
+      },
+      "STRATEGY_ZONE": {
+        "expected_state": "STABLE—changes should be rare and deliberate",
+        "drift_signature": "Strategy changes without SAP checkpoint",
+        "health_impact": "🟠 ORANGE if violated"
+      },
+      "ANALYSIS_ZONE": {
+        "expected_state": "ACTIVE—data flows through here",
+        "drift_signature": "Compressed output without user request (L001 violation)",
+        "health_impact": "🟡 YELLOW if violated"
+      },
+      "CONVERSATION_ZONE": {
+        "expected_state": "FLUID—natural compression expected",
+        "drift_signature": "None—this zone is expected to compress",
+        "health_impact": "None"
+      }
+    },
+    
+    "enhanced_health_report_format": {
+      "template": [
+        "THREAD HEALTH: [EMOJI] [LEVEL]",
+        "├─ Context: ~[X]% total",
+        "│  ├─ 🏰 Governance: [STATIC/MODIFIED]",
+        "│  ├─ 🏠 Strategy: [STABLE/CHANGED]",
+        "│  ├─ 🌿 Analysis: [X rows loaded]",
+        "│  └─ 💬 Conversation: [X messages]",
+        "├─ Drift Signatures: [LIST or None]",
+        "└─ Zone Violations: [LIST or None]"
+      ],
+      "example": [
+        "THREAD HEALTH: 🟢 GREEN",
+        "├─ Context: ~35% total",
+        "│  ├─ 🏰 Governance: STATIC ✓",
+        "│  ├─ 🏠 Strategy: STABLE ✓",
+        "│  ├─ 🌿 Analysis: 0 rows loaded",
+        "│  └─ 💬 Conversation: 4 messages",
+        "├─ Drift Signatures: None",
+        "└─ Zone Violations: None"
+      ]
+    }
+  },
+
+  "revision_notes": {
+    "previous_baseline": null,
+    "reason_for_creation": "R15 architecture enhancement. Implements Token Wall concept for semantic segmentation of context window. Introduces @ACTIVE_* reference resolution pattern for resilient updates.",
+    "new_baseline": "CONTEXT_PARTITIONS_v2025.12.08.1_JSON",
+    "architectural_contributions": [
+      "Token Wall system with 5 wall types (Castle, Brick, Picket, Hedge, None)",
+      "4 pre-defined zones (Governance, Strategy, Analysis, Conversation)",
+      "3 crossing protocols (Drawbridge/L003, Garden Gate/SAP, L001 Gate)",
+      "@ACTIVE_* reference resolution pattern for loose coupling",
+      "AP006 anti-pattern (hardcoded versions)",
+      "Enhanced thread health report format with zone status"
+    ],
+    "related_r15_files": [
+      "VERSIONING_HUB_REGISTRY_v2025.12.08-R15_JSON"
+    ],
+    "backwards_compatible": true,
+    "requires_other_file_updates": false
+  }
+}
