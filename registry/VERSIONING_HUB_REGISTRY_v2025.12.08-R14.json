@@ -1,0 +1,336 @@
+{
+  "registry_version": "2025.12.08-R14",
+  "hub_label": "Gemini_3_Master_Control_Permanent_Context",
+  "shading_schema_version": "1.0",
+  "recovery_build": true,
+  "recovery_source": "Claude architecture audit 2025-12-08",
+
+  "revision_notes": {
+    "L003_COMPLIANCE": "CHANGELOG RITUAL followed",
+    "previous_baseline": "VERSIONING_HUB_REGISTRY_v2025.12.04-R13",
+    "reason_for_revision": [
+      "R13 referenced phantom files (v2025.12.04.8 versions were declared but never created)",
+      "R13 had version format inconsistency (root used dashes, nested used dots)",
+      "R13 was created alongside corrupted BEST_PRACTICES_v2025.12.05.2 (10x duplication anti-pattern)",
+      "R14 implements conceptual shading framework for context resilience",
+      "R14 creates all referenced files with proper content and correct 2025.12.08 dates"
+    ],
+    "new_baseline": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14",
+    "deprecated_baselines": [
+      "VERSIONING_HUB_REGISTRY_v2025.12.04-R13",
+      "VERSIONING_HUB_REGISTRY_v2025.12.04-R12",
+      "BEST_PRACTICES_v2025.12.05.2_JSON"
+    ],
+    "architectural_changes": [
+      "Implemented conceptual shading (boundaries, mnemonics, examples) per SHADING-001",
+      "Added CRITICAL_RULES_LOAD_FIRST/FOOTER for attention bias exploitation",
+      "Added mnemonic anchors (FISHEYE LENS, TIME'S ARROW, CHANGELOG RITUAL, etc.)",
+      "Added ANTI_PATTERNS section to BEST_PRACTICES",
+      "Added violation recovery procedures throughout"
+    ]
+  },
+
+  "active_versions": {
+    "master_prompt": "MASTER_PROMPT_v2025.12.08.1_JSON",
+    "best_practices": "BEST_PRACTICES_v2025.12.08.1_JSON",
+    "runtime_settings": "RUNTIME_SETTINGS_v2025.12.08.1_JSON",
+    "strategy_guide": "STRATEGY_GUIDE_v2025.12.08.1_JSON",
+    "thread_config_generator": "THREAD_CONFIG_GENERATOR_v2025.12.1_JSON",
+    "thread_template": "THREAD_TEMPLATE_v2025.12_JSON",
+    "thread_config": "THREAD_CONFIG_v2025.12"
+  },
+
+  "file_manifest": {
+    "_PURPOSE": "L004 compliance - explicit list of files that MUST exist for this registry to be valid",
+    "required_files": [
+      {
+        "asset_id": "MASTER_PROMPT_v2025.12.08.1_JSON",
+        "path": "master/MASTER_PROMPT_v2025.12.08.1.json",
+        "status": "CREATED_R14",
+        "internal_version_must_match": "2025-12-08.1"
+      },
+      {
+        "asset_id": "BEST_PRACTICES_v2025.12.08.1_JSON",
+        "path": "best_practices/BEST_PRACTICES_v2025.12.08.1.json",
+        "status": "CREATED_R14",
+        "internal_version_must_match": "2025-12-08.1"
+      },
+      {
+        "asset_id": "RUNTIME_SETTINGS_v2025.12.08.1_JSON",
+        "path": "runtime_settings/RUNTIME_SETTINGS_v2025.12.08.1.json",
+        "status": "CREATED_R14",
+        "internal_version_must_match": "2025-12-08.1"
+      },
+      {
+        "asset_id": "STRATEGY_GUIDE_v2025.12.08.1_JSON",
+        "path": "strategy_guides/STRATEGY_GUIDE_v2025.12.08.1.json",
+        "status": "CREATED_R14",
+        "internal_version_must_match": "2025-12-08.1"
+      },
+      {
+        "asset_id": "THREAD_CONFIG_GENERATOR_v2025.12.1_JSON",
+        "path": "generators/THREAD_CONFIG_GENERATOR_v2025.12.1.json",
+        "status": "INHERITED_FROM_R12",
+        "internal_version_must_match": "2025.12.1"
+      },
+      {
+        "asset_id": "THREAD_TEMPLATE_v2025.12_JSON",
+        "path": "templates/THREAD_TEMPLATE_v2025.12.json",
+        "status": "INHERITED_FROM_R12",
+        "internal_version_must_match": "2025.12"
+      }
+    ],
+    "validation_checkpoint": "Before publishing registry: Verify ALL required_files exist and internal versions match."
+  },
+
+  "repository": {
+    "master_prompts": {
+      "MASTER_PROMPT_v2025.12.08.1_JSON": {
+        "status": "active",
+        "previous_version": "MASTER_PROMPT_v2025.12.04.7_JSON",
+        "reason_for_change": "R14 recovery: Implemented conceptual shading, added CRITICAL_RULES headers/footers, mnemonic anchors, violation recovery procedures.",
+        "shading_enabled": true,
+        "key_additions": [
+          "CRITICAL_RULES_LOAD_FIRST (primacy bias)",
+          "CRITICAL_RULES_FOOTER (recency bias)",
+          "Mnemonic anchors for all critical rules",
+          "IS/IS_NOT/WHY shading throughout",
+          "Violation recovery procedures"
+        ]
+      },
+      "MASTER_PROMPT_v2025.12.04.7_JSON": {
+        "status": "deprecated",
+        "deprecated_date": "2025-12-08",
+        "replaced_by": "MASTER_PROMPT_v2025.12.08.1_JSON",
+        "reason": "Superseded by R14 recovery build with conceptual shading"
+      }
+    },
+
+    "best_practices": {
+      "BEST_PRACTICES_v2025.12.08.1_JSON": {
+        "status": "active",
+        "previous_version": "BEST_PRACTICES_v2025.12.04.7_JSON",
+        "reason_for_change": "R14 recovery: Full conceptual shading implementation. Restored content lost in v2025.12.05.2 corruption. Added ANTI_PATTERNS section.",
+        "shading_enabled": true,
+        "key_additions": [
+          "18-dimension shading schema",
+          "Criticality-based shading depth (CRITICAL/HIGH/MEDIUM/LOW)",
+          "ANTI_PATTERNS section (AP001-AP005)",
+          "VIOLATION_SIGNATURE patterns for self-detection",
+          "CHECKPOINT and RECOVERY enforcement mechanisms",
+          "Restored METAPHOR and BENEFITS_AND_OUTCOMES for L001"
+        ]
+      },
+      "BEST_PRACTICES_v2025.12.05.2_JSON": {
+        "status": "deprecated",
+        "deprecated_date": "2025-12-08",
+        "replaced_by": "BEST_PRACTICES_v2025.12.08.1_JSON",
+        "reason": "CORRUPTED FILE - contained AP001 anti-pattern (10x rule duplication), lost critical content",
+        "corruption_details": {
+          "anti_pattern_used": "AP001_DUPLICATION_FOR_EMPHASIS",
+          "content_lost": [
+            "L001 METAPHOR (Fisheye Lens Analogy)",
+            "L001 BENEFITS_AND_OUTCOMES array",
+            "versioning_rules section",
+            "thread_initialization section",
+            "BP-106_MANDATE"
+          ],
+          "tokens_wasted": "~3000 (10 identical copies of L001)"
+        }
+      },
+      "BEST_PRACTICES_v2025.12.04.7_JSON": {
+        "status": "deprecated",
+        "deprecated_date": "2025-12-08",
+        "replaced_by": "BEST_PRACTICES_v2025.12.08.1_JSON",
+        "reason": "Superseded by R14 recovery build with conceptual shading"
+      }
+    },
+
+    "runtime_settings": {
+      "RUNTIME_SETTINGS_v2025.12.08.1_JSON": {
+        "status": "active",
+        "previous_version": "RUNTIME_SETTINGS_v2025.12.04.7_JSON",
+        "reason_for_change": "R14 recovery: Added shading checkpoint integration, updated related_registry_version, synchronized with R14 architecture.",
+        "shading_enabled": true
+      },
+      "RUNTIME_SETTINGS_v2025.12.04.7_JSON": {
+        "status": "deprecated",
+        "deprecated_date": "2025-12-08",
+        "replaced_by": "RUNTIME_SETTINGS_v2025.12.08.1_JSON",
+        "reason": "Superseded by R14 recovery build"
+      }
+    },
+
+    "strategy_guides": {
+      "STRATEGY_GUIDE_v2025.12.08.1_JSON": {
+        "status": "active",
+        "previous_version": "STRATEGY_GUIDE_v2025.12.04.2_JSON",
+        "reason_for_change": "R14 recovery: Added conceptual shading to operational constraints, added L001 integration checkpoint for Etsy analysis, added strategy anti-patterns (SAP001-SAP004).",
+        "shading_enabled": true
+      },
+      "STRATEGY_GUIDE_v2025.12.04.2_JSON": {
+        "status": "deprecated",
+        "deprecated_date": "2025-12-08",
+        "replaced_by": "STRATEGY_GUIDE_v2025.12.08.1_JSON",
+        "reason": "Superseded by R14 recovery build with conceptual shading"
+      }
+    },
+
+    "generators": {
+      "THREAD_CONFIG_GENERATOR_v2025.12.1_JSON": {
+        "status": "active",
+        "previous_version": null,
+        "reason_for_change": "No change needed; existing generator logic remains valid for R14.",
+        "inherited_from": "R12"
+      }
+    },
+
+    "thread_templates": {
+      "THREAD_TEMPLATE_v2025.12_JSON": {
+        "status": "active",
+        "inherited_from": "R12",
+        "note": "Template structure unchanged for R14"
+      }
+    },
+
+    "thread_configs": {},
+    "migrations": {}
+  },
+
+  "deprecated_registries": {
+    "VERSIONING_HUB_REGISTRY_v2025.12.04-R13": {
+      "status": "deprecated",
+      "deprecated_date": "2025-12-08",
+      "replaced_by": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14",
+      "reason": "R13 was corrupted - referenced phantom files that were never created",
+      "corruption_details": {
+        "phantom_files": [
+          "MASTER_PROMPT_v2025.12.04.8_JSON (declared, never created)",
+          "BEST_PRACTICES_v2025.12.04.8_JSON (declared, never created)",
+          "RUNTIME_SETTINGS_v2025.12.04.8_JSON (declared, never created)",
+          "STRATEGY_GUIDE_v2025.12.04.3_JSON (declared, never created)"
+        ],
+        "format_inconsistency": {
+          "root_level": "2025-12-04-R13 (dashes)",
+          "nested_level": "2025.12.04-R13 (dots)",
+          "correct_format": "2025.12.08-R14 (dots for date, dash-R for registry)"
+        },
+        "associated_corruption": "Created alongside BEST_PRACTICES_v2025.12.05.2 which used AP001 anti-pattern"
+      }
+    },
+    "VERSIONING_HUB_REGISTRY_v2025.12.04-R12": {
+      "status": "deprecated",
+      "deprecated_date": "2025-12-08",
+      "replaced_by": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14",
+      "reason": "Last known stable version - superseded by R14 recovery build",
+      "note": "R12 was stable but lacked conceptual shading. R14 builds on R12's stability while adding resilience."
+    }
+  },
+
+  "deprecated_threads": {
+    "VERSIONING_HUB_v1": {
+      "status": "deprecated",
+      "deprecated_date": "2025-12-02",
+      "replaced_by": "VERSIONING_HUB_v2",
+      "reason": "Superseded by structured registry, audits, migrations, and multi-agent design"
+    },
+    "VERSIONING_HUB3_CORE_v2025-12-02.lossless": {
+      "status": "deprecated",
+      "deprecated_date": "2025-12-04",
+      "replaced_by": "PERMA_STATE_v1",
+      "reason": "Lossless Kernel/Starter Pack no longer required due to massive context window"
+    }
+  },
+
+  "version_format_standard": {
+    "_PURPOSE": "L005 compliance - DOTS_AND_DASH_R rule",
+    "file_format": {
+      "pattern": "ASSET_TYPE_vYYYY.MM.DD.revision.json",
+      "example": "MASTER_PROMPT_v2025.12.08.1.json",
+      "internal_version_field": "2025-12-08.1"
+    },
+    "registry_format": {
+      "pattern": "VERSIONING_HUB_REGISTRY_vYYYY.MM.DD-Rrevision.json",
+      "example": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14.json"
+    },
+    "mnemonic": "DOTS FOR FILES, DASH-R FOR REGISTRY"
+  },
+
+  "conceptual_shading_manifest": {
+    "_PURPOSE": "Track which assets have been shaded and to what depth",
+    "schema_version": "1.0",
+    "shaded_assets": {
+      "MASTER_PROMPT_v2025.12.08.1_JSON": {
+        "shading_depth": "FULL",
+        "dimensions_used": ["IS", "IS_NOT", "WHY", "CORRECT", "INCORRECT", "CHECKPOINT", "RECOVERY", "MNEMONIC"]
+      },
+      "BEST_PRACTICES_v2025.12.08.1_JSON": {
+        "shading_depth": "FULL",
+        "dimensions_used": "ALL_18",
+        "includes_anti_patterns": true
+      },
+      "RUNTIME_SETTINGS_v2025.12.08.1_JSON": {
+        "shading_depth": "STANDARD",
+        "dimensions_used": ["IS", "IS_NOT", "WHY", "CHECKPOINT"]
+      },
+      "STRATEGY_GUIDE_v2025.12.08.1_JSON": {
+        "shading_depth": "STANDARD",
+        "dimensions_used": ["IS", "IS_NOT", "WHY", "CORRECT", "INCORRECT"],
+        "includes_strategy_anti_patterns": true
+      }
+    }
+  },
+
+  "initialization_checkpoint": {
+    "_PURPOSE": "Validation to run when loading this registry into a new thread",
+    "steps": [
+      "1. Verify all file_manifest.required_files exist in repository",
+      "2. Verify internal version fields match expected values",
+      "3. Load CRITICAL_RULES_LOAD_FIRST from MASTER_PROMPT",
+      "4. Confirm L001-L005 mnemonics are recognized",
+      "5. Report thread health status (should be 🟢 GREEN on fresh init)"
+    ],
+    "success_confirmation": "STATE: 'R14 ARCHITECTURE LOADED - All governance files verified. Conceptual shading active. Thread health: 🟢 GREEN'"
+  },
+
+  "recovery_lineage": {
+    "_PURPOSE": "Document the recovery path for future debugging",
+    "timeline": [
+      {
+        "version": "R12",
+        "date": "2025-12-04",
+        "status": "STABLE",
+        "notes": "Last known good state before corruption"
+      },
+      {
+        "version": "R13",
+        "date": "2025-12-04",
+        "status": "CORRUPTED",
+        "notes": "Phantom file references, format inconsistency, created alongside corrupted BEST_PRACTICES"
+      },
+      {
+        "version": "R14",
+        "date": "2025-12-08",
+        "status": "RECOVERY_BUILD",
+        "notes": "Claude audit identified issues. Implemented conceptual shading. All files created properly."
+      }
+    ],
+    "audit_source": {
+      "auditor": "Claude (via Venice.ai)",
+      "audit_date": "2025-12-08",
+      "findings": [
+        "R13 referenced phantom files",
+        "BEST_PRACTICES_v2025.12.05.2 used AP001 anti-pattern (10x duplication)",
+        "User's original 'context shading' intent was correct, implementation was wrong",
+        "Conceptual shading (boundaries, not copies) is the correct approach"
+      ],
+      "recommendations_implemented": [
+        "Created all R14 version files with proper content",
+        "Implemented 18-dimension conceptual shading schema",
+        "Added ANTI_PATTERNS section",
+        "Added attention bias exploitation (LOAD_FIRST/FOOTER)",
+        "Added mnemonic anchors for critical rules"
+      ]
+    }
+  }
+}
