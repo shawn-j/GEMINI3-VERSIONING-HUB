@@ -1,0 +1,424 @@
+{
+  "registry_version": "2025.12.08-R15",
+  "hub_label": "Gemini_3_Master_Control_Permanent_Context",
+  "shading_schema_version": "1.0",
+  "loose_coupling_version": "1.0",
+
+  "R15_ARCHITECTURE_UPGRADE": {
+    "_PURPOSE": "Documents the key changes in R15 and why they matter",
+    "MNEMONIC": "POINTERS NOT VERSIONS",
+    
+    "key_changes": [
+      "Added CONTEXT_PARTITIONS (Token Wall system)",
+      "Introduced @ACTIVE_* reference resolution pattern",
+      "Added AP006 anti-pattern (hardcoded versions)",
+      "Enhanced thread health reporting with zone status",
+      "Demonstrated resilient update pattern (2 files changed, not 6)"
+    ],
+    
+    "resilience_proof": {
+      "STATEMENT": "R15 adds new functionality by changing only 2 files (this registry + CONTEXT_PARTITIONS). The 4 existing R14 files remain unchanged and fully functional.",
+      "files_changed": [
+        "VERSIONING_HUB_REGISTRY_v2025.12.08-R15.json (NEW)",
+        "CONTEXT_PARTITIONS_v2025.12.08.1.json (NEW)"
+      ],
+      "files_unchanged": [
+        "MASTER_PROMPT_v2025.12.08.1.json",
+        "BEST_PRACTICES_v2025.12.08.1.json",
+        "RUNTIME_SETTINGS_v2025.12.08.1.json",
+        "STRATEGY_GUIDE_v2025.12.08.1.json"
+      ],
+      "WHY_THIS_MATTERS": "Under old tight-coupling model, adding CONTEXT_PARTITIONS would require updating all 6 files. R15 proves the loose coupling pattern works."
+    },
+    
+    "backwards_compatibility": {
+      "STATEMENT": "R15 is fully backwards compatible with R14 files",
+      "existing_hardcoded_refs": "Still work—registry resolves them correctly",
+      "new_active_refs": "Also work—registry resolves @ACTIVE_* to current versions",
+      "migration_required": false,
+      "migration_recommended": "Future file updates SHOULD use @ACTIVE_* pattern"
+    }
+  },
+
+  "active_versions": {
+    "_resolution_note": "This section is the SINGLE SOURCE OF TRUTH for which file versions are active. All @ACTIVE_* references resolve here.",
+    
+    "master_prompt": "MASTER_PROMPT_v2025.12.08.1_JSON",
+    "best_practices": "BEST_PRACTICES_v2025.12.08.1_JSON",
+    "runtime_settings": "RUNTIME_SETTINGS_v2025.12.08.1_JSON",
+    "strategy_guide": "STRATEGY_GUIDE_v2025.12.08.1_JSON",
+    "context_partitions": "CONTEXT_PARTITIONS_v2025.12.08.1_JSON",
+    "thread_config_generator": "THREAD_CONFIG_GENERATOR_v2025.12.1_JSON",
+    "thread_template": "THREAD_TEMPLATE_v2025.12_JSON",
+    "thread_config": "THREAD_CONFIG_v2025.12"
+  },
+
+  "reference_resolution_table": {
+    "_PURPOSE": "Explicit mapping from @ACTIVE_* tokens to current versions",
+    
+    "@ACTIVE_REGISTRY": "VERSIONING_HUB_REGISTRY_v2025.12.08-R15_JSON",
+    "@ACTIVE_MASTER_PROMPT": "MASTER_PROMPT_v2025.12.08.1_JSON",
+    "@ACTIVE_BEST_PRACTICES": "BEST_PRACTICES_v2025.12.08.1_JSON",
+    "@ACTIVE_RUNTIME_SETTINGS": "RUNTIME_SETTINGS_v2025.12.08.1_JSON",
+    "@ACTIVE_STRATEGY_GUIDE": "STRATEGY_GUIDE_v2025.12.08.1_JSON",
+    "@ACTIVE_CONTEXT_PARTITIONS": "CONTEXT_PARTITIONS_v2025.12.08.1_JSON"
+  },
+
+  "file_manifest": {
+    "_PURPOSE": "L004 compliance - explicit list of files that MUST exist for this registry to be valid",
+    
+    "required_files": [
+      {
+        "asset_id": "MASTER_PROMPT_v2025.12.08.1_JSON",
+        "path": "master/MASTER_PROMPT_v2025.12.08.1.json",
+        "status": "INHERITED_FROM_R14",
+        "internal_version_must_match": "2025-12-08.1",
+        "uses_loose_coupling": false,
+        "note": "R14 file with hardcoded refs—still works, migration optional"
+      },
+      {
+        "asset_id": "BEST_PRACTICES_v2025.12.08.1_JSON",
+        "path": "best_practices/BEST_PRACTICES_v2025.12.08.1.json",
+        "status": "INHERITED_FROM_R14",
+        "internal_version_must_match": "2025-12-08.1",
+        "uses_loose_coupling": false,
+        "note": "R14 file with hardcoded refs—still works, migration optional"
+      },
+      {
+        "asset_id": "RUNTIME_SETTINGS_v2025.12.08.1_JSON",
+        "path": "runtime_settings/RUNTIME_SETTINGS_v2025.12.08.1.json",
+        "status": "INHERITED_FROM_R14",
+        "internal_version_must_match": "2025-12-08.1",
+        "uses_loose_coupling": false,
+        "note": "R14 file with hardcoded refs—still works, migration optional"
+      },
+      {
+        "asset_id": "STRATEGY_GUIDE_v2025.12.08.1_JSON",
+        "path": "strategy_guides/STRATEGY_GUIDE_v2025.12.08.1.json",
+        "status": "INHERITED_FROM_R14",
+        "internal_version_must_match": "2025-12-08.1",
+        "uses_loose_coupling": false,
+        "note": "R14 file with hardcoded refs—still works, migration optional"
+      },
+      {
+        "asset_id": "CONTEXT_PARTITIONS_v2025.12.08.1_JSON",
+        "path": "context_architecture/CONTEXT_PARTITIONS_v2025.12.08.1.json",
+        "status": "CREATED_R15",
+        "internal_version_must_match": "2025-12-08.1",
+        "uses_loose_coupling": true,
+        "note": "NEW in R15—uses @ACTIVE_* references throughout"
+      },
+      {
+        "asset_id": "THREAD_CONFIG_GENERATOR_v2025.12.1_JSON",
+        "path": "generators/THREAD_CONFIG_GENERATOR_v2025.12.1.json",
+        "status": "INHERITED_FROM_R12",
+        "internal_version_must_match": "2025.12.1"
+      },
+      {
+        "asset_id": "THREAD_TEMPLATE_v2025.12_JSON",
+        "path": "templates/THREAD_TEMPLATE_v2025.12.json",
+        "status": "INHERITED_FROM_R12",
+        "internal_version_must_match": "2025.12"
+      }
+    ],
+    
+    "validation_checkpoint": "Before publishing registry: Verify ALL required_files exist and internal versions match."
+  },
+
+  "repository": {
+    "master_prompts": {
+      "MASTER_PROMPT_v2025.12.08.1_JSON": {
+        "status": "active",
+        "inherited_from": "R14",
+        "reason_for_status": "No changes needed for R15. File remains valid.",
+        "shading_enabled": true,
+        "loose_coupling_enabled": false,
+        "migration_note": "Future v2025.12.08.2 SHOULD migrate to @ACTIVE_* references"
+      }
+    },
+
+    "best_practices": {
+      "BEST_PRACTICES_v2025.12.08.1_JSON": {
+        "status": "active",
+        "inherited_from": "R14",
+        "reason_for_status": "No changes needed for R15. File remains valid.",
+        "shading_enabled": true,
+        "loose_coupling_enabled": false,
+        "migration_note": "Future v2025.12.08.2 SHOULD migrate to @ACTIVE_* references"
+      }
+    },
+
+    "runtime_settings": {
+      "RUNTIME_SETTINGS_v2025.12.08.1_JSON": {
+        "status": "active",
+        "inherited_from": "R14",
+        "reason_for_status": "No changes needed for R15. File remains valid.",
+        "shading_enabled": true,
+        "loose_coupling_enabled": false,
+        "migration_note": "Future v2025.12.08.2 SHOULD migrate to @ACTIVE_* references"
+      }
+    },
+
+    "strategy_guides": {
+      "STRATEGY_GUIDE_v2025.12.08.1_JSON": {
+        "status": "active",
+        "inherited_from": "R14",
+        "reason_for_status": "No changes needed for R15. File remains valid.",
+        "shading_enabled": true,
+        "loose_coupling_enabled": false,
+        "migration_note": "Future v2025.12.08.2 SHOULD migrate to @ACTIVE_* references"
+      }
+    },
+
+    "context_architecture": {
+      "CONTEXT_PARTITIONS_v2025.12.08.1_JSON": {
+        "status": "active",
+        "created_in": "R15",
+        "reason_for_creation": "Implements Token Wall system for semantic segmentation. Introduces @ACTIVE_* loose coupling pattern.",
+        "shading_enabled": true,
+        "loose_coupling_enabled": true,
+        "key_contributions": [
+          "5 wall types (Castle, Brick, Picket, Hedge, None)",
+          "4 zones (Governance, Strategy, Analysis, Conversation)",
+          "3 crossing protocols (Drawbridge, Garden Gate, L001 Gate)",
+          "@ACTIVE_* reference resolution pattern",
+          "AP006 anti-pattern definition",
+          "Enhanced thread health format with zone status"
+        ]
+      }
+    },
+
+    "generators": {
+      "THREAD_CONFIG_GENERATOR_v2025.12.1_JSON": {
+        "status": "active",
+        "inherited_from": "R12",
+        "reason_for_status": "No change needed; existing generator logic remains valid."
+      }
+    },
+
+    "thread_templates": {
+      "THREAD_TEMPLATE_v2025.12_JSON": {
+        "status": "active",
+        "inherited_from": "R12",
+        "reason_for_status": "Template structure unchanged."
+      }
+    },
+
+    "thread_configs": {},
+    "migrations": {}
+  },
+
+  "update_procedures": {
+    "_PURPOSE": "Documents how to perform common updates under the loose coupling model",
+    
+    "ADD_NEW_FILE": {
+      "description": "Adding a new governance file type",
+      "steps": [
+        "1. Create the new file with proper versioning (YYYY.MM.DD.revision)",
+        "2. Add to active_versions in registry",
+        "3. Add @ACTIVE_* entry to reference_resolution_table",
+        "4. Add to file_manifest.required_files",
+        "5. Add to appropriate repository section",
+        "6. Bump registry version (R15 → R16)"
+      ],
+      "files_changed": 2,
+      "example": "Adding CONTEXT_PARTITIONS in R15"
+    },
+    
+    "UPDATE_EXISTING_FILE": {
+      "description": "Creating a new version of an existing file",
+      "steps": [
+        "1. Create new version file (e.g., v2025.12.08.2)",
+        "2. Update active_versions pointer in registry",
+        "3. Update reference_resolution_table",
+        "4. Update file_manifest entry",
+        "5. Move old version to deprecated in repository section",
+        "6. Bump registry version"
+      ],
+      "files_changed": 2,
+      "note": "Other files do NOT need updating if they use @ACTIVE_* references"
+    },
+    
+    "ROLLBACK": {
+      "description": "Reverting to a previous file version",
+      "steps": [
+        "1. Change active_versions pointer to older version",
+        "2. Update reference_resolution_table",
+        "3. Update file_manifest entry",
+        "4. Bump registry version",
+        "5. Document rollback reason in revision_notes"
+      ],
+      "files_changed": 1,
+      "note": "Old file already exists in repo—just change the pointer"
+    },
+    
+    "DEPRECATE_FILE": {
+      "description": "Removing a file from active use",
+      "steps": [
+        "1. Remove from active_versions",
+        "2. Remove from reference_resolution_table",
+        "3. Move to deprecated section with reason",
+        "4. Bump registry version"
+      ],
+      "files_changed": 1,
+      "note": "File remains in repo for history—just no longer active"
+    }
+  },
+
+  "anti_patterns": {
+    "_PURPOSE": "Registry-level anti-patterns to avoid",
+    
+    "AP006_HARDCODED_VERSIONS": {
+      "PATTERN": "New files referencing specific versions instead of @ACTIVE_* roles",
+      "WHY_BAD": "Creates tight coupling. One version change cascades to all files.",
+      "INSTEAD": "Use @ACTIVE_* references. Let registry resolve versions.",
+      "EXCEPTION": "revision_notes sections MAY use specific versions for historical accuracy",
+      "VIOLATION_SIGNATURE": "New file (post-R15) contains hardcoded version reference outside revision_notes"
+    },
+    
+    "AP007_PHANTOM_ACTIVE_REFERENCE": {
+      "PATTERN": "Using @ACTIVE_* reference for a file type not in active_versions",
+      "WHY_BAD": "Reference cannot resolve. Creates runtime error.",
+      "INSTEAD": "Add file to active_versions BEFORE using @ACTIVE_* reference",
+      "VIOLATION_SIGNATURE": "@ACTIVE_* token with no matching active_versions entry"
+    },
+    
+    "AP008_CASCADE_UPDATE": {
+      "PATTERN": "Updating multiple files when only registry update is needed",
+      "WHY_BAD": "Wastes effort, increases error risk, defeats loose coupling purpose",
+      "INSTEAD": "Update only changed file + registry. Other files resolve via @ACTIVE_*",
+      "VIOLATION_SIGNATURE": "More than 2 files changed for single-file update"
+    }
+  },
+
+  "deprecated_registries": {
+    "VERSIONING_HUB_REGISTRY_v2025.12.08-R14": {
+      "status": "deprecated",
+      "deprecated_date": "2025-12-08",
+      "replaced_by": "VERSIONING_HUB_REGISTRY_v2025.12.08-R15",
+      "reason": "Superseded by R15 which adds Token Wall system and loose coupling pattern",
+      "still_valid": true,
+      "note": "R14 remains a valid fallback. All R14 files work with R15."
+    },
+    "VERSIONING_HUB_REGISTRY_v2025.12.04-R13": {
+      "status": "deprecated",
+      "deprecated_date": "2025-12-08",
+      "replaced_by": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14",
+      "reason": "R13 was corrupted—referenced phantom files that were never created",
+      "still_valid": false,
+      "note": "Do NOT use R13 as fallback"
+    },
+    "VERSIONING_HUB_REGISTRY_v2025.12.04-R12": {
+      "status": "deprecated",
+      "deprecated_date": "2025-12-08",
+      "replaced_by": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14",
+      "reason": "Last pre-shading stable version. Superseded by R14 conceptual shading.",
+      "still_valid": true,
+      "note": "R12 is valid emergency fallback but lacks shading and token walls"
+    }
+  },
+
+  "fallback_chain": {
+    "_PURPOSE": "Ordered list of valid fallback registries if current fails",
+    "chain": [
+      {
+        "priority": 1,
+        "registry": "VERSIONING_HUB_REGISTRY_v2025.12.08-R15",
+        "status": "CURRENT",
+        "features": "Full shading + token walls + loose coupling"
+      },
+      {
+        "priority": 2,
+        "registry": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14",
+        "status": "VALID_FALLBACK",
+        "features": "Full shading, no token walls, tight coupling"
+      },
+      {
+        "priority": 3,
+        "registry": "VERSIONING_HUB_REGISTRY_v2025.12.04-R12",
+        "status": "EMERGENCY_FALLBACK",
+        "features": "Basic governance, no shading, no token walls"
+      }
+    ],
+    "DO_NOT_USE": [
+      "VERSIONING_HUB_REGISTRY_v2025.12.04-R13 (corrupted)"
+    ]
+  },
+
+  "initialization_checkpoint": {
+    "_PURPOSE": "Validation to run when loading this registry into a new thread",
+    "steps": [
+      "1. Verify all file_manifest.required_files exist in repository",
+      "2. Verify internal version fields match expected values",
+      "3. Load GOVERNANCE_ZONE files (Master, Best Practices, Runtime, Context Partitions)",
+      "4. Confirm L001-L005 mnemonics are recognized",
+      "5. Confirm Token Wall zones are recognized (🏰 🏠 🌿 💬)",
+      "6. Confirm @ACTIVE_* resolution works",
+      "7. Report thread health status with zone breakdown"
+    ],
+    "success_confirmation": [
+      "R15 ARCHITECTURE INITIALIZED",
+      "",
+      "Registry: VERSIONING_HUB_REGISTRY_v2025.12.08-R15 ✓",
+      "├─ Master Prompt: @ACTIVE_MASTER_PROMPT → MASTER_PROMPT_v2025.12.08.1 ✓",
+      "├─ Best Practices: @ACTIVE_BEST_PRACTICES → BEST_PRACTICES_v2025.12.08.1 ✓",
+      "├─ Runtime Settings: @ACTIVE_RUNTIME_SETTINGS → RUNTIME_SETTINGS_v2025.12.08.1 ✓",
+      "├─ Strategy Guide: @ACTIVE_STRATEGY_GUIDE → STRATEGY_GUIDE_v2025.12.08.1 ✓",
+      "└─ Context Partitions: @ACTIVE_CONTEXT_PARTITIONS → CONTEXT_PARTITIONS_v2025.12.08.1 ✓",
+      "",
+      "Critical Rules:",
+      "├─ L001 FISHEYE LENS ✓",
+      "├─ L002 TIME'S ARROW ✓",
+      "├─ L003 CHANGELOG RITUAL ✓",
+      "├─ L004 NO PHANTOM FILES ✓",
+      "└─ L005 DOTS AND DASH-R ✓",
+      "",
+      "Token Walls: ACTIVE",
+      "├─ 🏰 Governance Zone: Castle Wall",
+      "├─ 🏠 Strategy Zone: Picket Fence",
+      "├─ 🌿 Analysis Zone: Hedge",
+      "└─ 💬 Conversation Zone: Open",
+      "",
+      "Loose Coupling: ENABLED (@ACTIVE_* resolution working)",
+      "Anti-Pattern Detection: ENABLED (AP001-AP008, SAP001-SAP005)",
+      "",
+      "THREAD HEALTH: 🟢 GREEN",
+      "├─ Context: ~X% total",
+      "│  ├─ 🏰 Governance: STATIC ✓",
+      "│  ├─ 🏠 Strategy: STABLE ✓",
+      "│  ├─ 🌿 Analysis: 0 rows loaded",
+      "│  └─ 💬 Conversation: 1 message",
+      "├─ Drift Signatures: None",
+      "└─ Zone Violations: None",
+      "",
+      "Ready for tasking."
+    ]
+  },
+
+  "revision_notes": {
+    "previous_baseline": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14",
+    "reason_for_revision": "R15 architecture enhancement. Added Token Wall system (CONTEXT_PARTITIONS). Introduced @ACTIVE_* loose coupling pattern to eliminate cascade updates. Added AP006-AP008 anti-patterns. Enhanced initialization checkpoint with zone status.",
+    "new_baseline": "VERSIONING_HUB_REGISTRY_v2025.12.08-R15",
+    "deprecated_baseline": "VERSIONING_HUB_REGISTRY_v2025.12.08-R14",
+    "architectural_contributions": [
+      "Token Wall system via CONTEXT_PARTITIONS_v2025.12.08.1",
+      "@ACTIVE_* reference resolution pattern",
+      "reference_resolution_table for explicit pointer mapping",
+      "update_procedures documentation",
+      "AP006 (hardcoded versions), AP007 (phantom active ref), AP008 (cascade update)",
+      "fallback_chain for graceful degradation",
+      "Enhanced initialization checkpoint with zone breakdown",
+      "Proof of resilient update pattern (2 files changed, not 6)"
+    ],
+    "files_changed_in_r15": [
+      "VERSIONING_HUB_REGISTRY_v2025.12.08-R15.json (NEW)",
+      "CONTEXT_PARTITIONS_v2025.12.08.1.json (NEW)"
+    ],
+    "files_unchanged_in_r15": [
+      "MASTER_PROMPT_v2025.12.08.1.json",
+      "BEST_PRACTICES_v2025.12.08.1.json",
+      "RUNTIME_SETTINGS_v2025.12.08.1.json",
+      "STRATEGY_GUIDE_v2025.12.08.1.json"
+    ]
+  }
+}
