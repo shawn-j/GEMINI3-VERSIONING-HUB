@@ -1,0 +1,68 @@
+{
+  "runtime_settings_version": "2025.12.27.2",
+  "asset_id": "RUNTIME_SETTINGS_v2025.12.27.2_JSON",
+  "shading_schema_version": "1.0",
+  "description": "R17 Release. Enforces Global Epoch Counter.",
+
+  "context_restoration": {
+    "L006_CONTEXT_REFRESH_RITUAL": {
+      "trigger_phrase": "EXECUTE REFRESH RITUAL",
+      "description": "Re-injects core governance to defeat primacy/recency bias (Fisheye Effect) without resetting thread state.",
+      "protocol": [
+        "1. Acknowledge command with 'REFRESH RITUAL INITIATED'.",
+        "2. Do NOT reset thread state or delete memories.",
+        "3. Load 'payload' (Master Prompt + Critical Rules) into active attention.",
+        "4. Confirm 'REFRESH COMPLETE' and resume previous task."
+      ],
+      "payload_reference": "Use @ACTIVE_MASTER_PROMPT content as the primary refresh payload."
+    }
+  },
+
+  "conceptual_shading_settings": {
+    "enabled": true,
+    "schema_version": "1.0",
+    "enforcement_mode": "active",
+    "pre_output_checkpoints": {
+      "data_analysis": {
+        "rule": "L001_FISHEYE_LENS",
+        "mnemonic": "FISHEYE LENS RULE",
+        "check": "source_rows == output_rows unless user requested aggregation",
+        "on_violation": "STOP, state 'L001 VIOLATION DETECTED', reprocess with full granularity"
+      },
+      "file_creation": {
+        "rule": "L002_TIMES_ARROW",
+        "mnemonic": "TIME'S ARROW (ETERNAL EPOCH)",
+        "check": "new_version > current_max_version AND new_R_number > current_R_number",
+        "on_violation": "STOP, state 'L002 VIOLATION DETECTED', increment version"
+      },
+      "governance_change": {
+        "rule": "L003_CHANGELOG_RITUAL",
+        "mnemonic": "CHANGELOG RITUAL",
+        "check": "Can state previous baseline and reason for change",
+        "on_violation": "STOP, document baseline before proceeding"
+      },
+      "registry_update": {
+        "rule": "L004_NO_PHANTOM_FILES",
+        "mnemonic": "NO PHANTOM FILES",
+        "check": "All referenced files exist with matching internal versions",
+        "on_violation": "STOP, create files before updating registry"
+      }
+    }
+  },
+
+  "thread_health_settings": {
+    "monitoring_mode": "active",
+    "report_frequency": "all_major_outputs",
+    "report_format": {
+      "template": "THREAD HEALTH: [EMOJI] [LEVEL] [MODEL_ID] | Context: ~[X]% | Drift: [STATUS]",
+      "example": "THREAD HEALTH: 🟢 GREEN [MODEL: GEMINI 2.5] | Context: ~25% | Drift: None detected",
+      "requirement": "Must include [MODEL: NAME] to allow multi-agent context tracking."
+    }
+  },
+
+  "revision_notes": {
+    "previous_baseline": "RUNTIME_SETTINGS_v2025.12.27.1_JSON",
+    "reason_for_revision": "R17 Upgrade. Added L002 Epoch Checkpoint.",
+    "new_baseline": "RUNTIME_SETTINGS_v2025.12.27.2_JSON"
+  }
+}
