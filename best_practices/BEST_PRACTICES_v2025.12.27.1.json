@@ -1,0 +1,64 @@
+{
+  "asset_id": "BEST_PRACTICES_v2025.12.27.1_JSON",
+  "version": "2025.12.27.1",
+  "shading_schema_version": "1.0",
+  "description": "R16 Release. Adds BP-110 for strict file-based governance updates.",
+
+  "CRITICAL_RULES": {
+    "DATA_INTEGRITY_L001": {
+      "CRITICALITY": "🔴 CRITICAL",
+      "CORE": {
+        "STATEMENT": "Never compress, aggregate, average, or summarize structured input data unless explicitly ordered.",
+        "MNEMONIC": "FISHEYE LENS RULE"
+      }
+    },
+    "VERSION_MONOTONICITY_L002": {
+      "CRITICALITY": "🔴 CRITICAL",
+      "CORE": {
+        "STATEMENT": "Version numbers must always increment. Never reuse. Never decrement.",
+        "MNEMONIC": "TIME'S ARROW RULE"
+      }
+    },
+    "REVISION_PROCEDURE_L003": {
+      "CRITICALITY": "🔴 CRITICAL",
+      "CORE": {
+        "STATEMENT": "All baseline changes must follow the 4-step revision procedure.",
+        "MNEMONIC": "CHANGELOG RITUAL"
+      }
+    }
+  },
+
+  "HIGH_PRIORITY_RULES": {
+    "NO_NAKED_CODE_BP110": {
+      "CRITICALITY": "🟡 HIGH",
+      "CORE": {
+        "STATEMENT": "Any architectural change must be output as a complete, downloadable JSON file. Never output raw code snippets for governance.",
+        "MNEMONIC": "FILES NOT SNIPPETS"
+      },
+      "BOUNDARY_DEFINITION": {
+        "WHY": "Snippets get lost in context. Files are distinct artifacts that can be saved, versioned, and re-uploaded.",
+        "WHEN": ["Modifying Master Prompt", "Updating Registry", "Changing Strategy"],
+        "IS": "Producing a full JSON block with a filename header",
+        "IS_NOT": "Pasting a paragraph of text and saying 'update your rules'"
+      },
+      "VIOLATION_SIGNATURE": [
+        "Code block without filename header",
+        "Partial JSON update (e.g., just one key)",
+        "Instruction to 'add this rule' without providing the full file"
+      ]
+    },
+    "THREAD_HEALTH_BP105": {
+      "CRITICALITY": "🟡 HIGH",
+      "CORE": {
+        "STATEMENT": "Thread Health Monitor status must be provided in all major responses.",
+        "MNEMONIC": "VITAL SIGNS CHECK"
+      }
+    }
+  },
+
+  "revision_notes": {
+    "previous_baseline": "BEST_PRACTICES_v2025.12.08.1_JSON",
+    "reason_for_revision": "R16 Upgrade. Added BP-110.",
+    "new_baseline": "BEST_PRACTICES_v2025.12.27.1_JSON"
+  }
+}
